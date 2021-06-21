@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/ico" />
+    <style>
+        canvas {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="field">
+        <canvas id="canvas"></canvas>
+        <div class="tools">
+            <button type="button" class="button">Undo</button>
+            <button onClick="clear_canvas()" type="button" class="button">Clear</button>
+            <button type="button" class="button">Download</button>
+
+            <input oninput="draw_color = this.value" type="color" class="color-picker">
+            <input type="range" min="1" max="100" class="pen-range" oninput="draw_width = this.value">
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/css/main.css" type="text/css" />
+    <script src="./assets/js/main.js"></script>
+</body>
