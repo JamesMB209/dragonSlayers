@@ -38,8 +38,8 @@ canvasDraft.height = 400;
 function mousePos(e) {
     this.yPos = e.offsetY;
     this.xPos = e.offsetX;
-    console.log(`x: ${xPos} y: ${yPos}`)
-        // return [xPos, yPos];
+    // console.log(`x: ${xPos} y: ${yPos}`)
+    // return [xPos, yPos];
 }
 
 $('#canvas').mousedown(function(e) {
@@ -51,9 +51,11 @@ $('#canvas').mousedown(function(e) {
 });
 
 $('#canvas').mousemove(function(e) {
+    mousePos(e);
     if (dragging == true) {
-        mousePos(e);
         currentFunction.onMouseDrag([xPos, yPos]); //changed from onMouseMove
+    } else {
+        currentFunction.onMouseMove([xPos, yPos])
     }
 })
 
@@ -108,4 +110,5 @@ class MouseEvents {
     onMouseDrag() {}
     onMouseLeave() {}
     onMouseUp() {}
+    onMouseMove() {}
 }
