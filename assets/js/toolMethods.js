@@ -21,7 +21,7 @@ function undo_last() {
 
 function redo_last() {
     if (reindex > -1) {
-        ctx.putImageData(redo_array[reindex], 0, 0);
+        context.putImageData(redo_array[reindex], 0, 0);
         restore_array.push(redo_array.pop());
         reindex -= 1;
         index += 1;
