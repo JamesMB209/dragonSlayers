@@ -1,59 +1,49 @@
-colours picker for stroke style (fillcolor tbc) <-- done
-line weight/thickness 
-fill
-canvas height/width adjustable * <-- J: set as according to screen width <--done
+TO DO LIST:
 
-drawing functions -
-pen <--ok
-square
-circle
-arc
-triangle 
-Straight Line
-erase
-text
+circle < -- working
+arc - gabe
+triangle - joyce
+Straight Line -- joyce
+erase 
+text <-- James
 icon tool * - gabes
 image import *
-download *
+download * joyce
 
 undo/redo <--waiting for test
+
+DONE:
+colours picker for stroke style (fillcolor tbc) <-- done
+line weight/thickness  <-- done
+fill < -- done
+canvas height/width adjustable * <-- J: set as according to screen width <--done
+pen <--done
+rectangle <--- done
 clear <--done
-
-
-HTML page/css page
-
-global set
-
-class? contains?
-
-event listeners 
-
-functions
-
 
 ///================== Rating Requirement from Sam ========================
 
 Canvas Group Project
 Passing Grade
-•    Students must incorporate a dual canvas system or have additional logic so that they can commit shapes onto the canvas  with user interaction
-•    Students need to assign event listeners to the buttons/ sliders/ calls to actions in the application
-1.    Buttons need to link to the different strategy patterns in the app
-2.    Buttons need to link to utility functions within the application
-•    The application contains a colour picker to alter the fill style or the stroke style of what is being drawn
-•    The application must contain at least one drawing strategy that captures and uses the users initial mouse down, subsequent dragging coordinates and the final mouse up coordinates
+#    Students must incorporate a dual canvas system or have additional logic so that they can commit shapes onto the canvas  with user interaction
+#    Students need to assign event listeners to the buttons/ sliders/ calls to actions in the application
+# 1.    Buttons need to link to the different strategy patterns in the app
+# 2.    Buttons need to link to utility functions within the application
+#    The application contains a colour picker to alter the fill style or the stroke style of what is being drawn
+#    The application must contain at least one drawing strategy that captures and uses the users initial mouse down, subsequent dragging coordinates and the final mouse up coordinates
 •    The application should have some style to make it less bare
 •    The application must include these functions:
-1.    Drawing Rectangle
+# 1.    Drawing Rectangle
 2.    Drawing Circle
 3.    Drawing Straight Line
 4.    Drawing a curved line
 5.    A point and drag eraser function
 
 Merit Grade
-•    Students must split their strategy patterns into multiple files
-•    The applications colour pickers can alter both the stroke and fill style
+#    Students must split their strategy patterns into multiple files
+#    The applications colour pickers can alter both the stroke and fill style
 •    The applications features need to include (at least 2):
-1.    undo-redo button
+# 1.    undo-redo button
 2.    insert text
 3.    save image button to download the canvas into the users downloads
 4.    filters on the canvas
