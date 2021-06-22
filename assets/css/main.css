@@ -1,6 +1,10 @@
-canvas {
+#canvasContainer {
+    position: relative;
+}
+
+#canvas {
+    position: absolute;
     border: 1px solid black;
-    /* position: unset; */
 }
 
 #canvasDraft {
