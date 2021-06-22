@@ -17,13 +17,19 @@
             <canvas id="canvas">Your browser doesn't support canvas get a better computer.</canvas>
         </div>
         <div class="tools">
+          
+            <-- Control buttons -->
             <button onClick="undo_last()" type="button" class="button">Undo</button>
             <button onClick="redo_last()" type="button" class="button">Redo</button>
             <button onClick="clear_canvas()" type="button" class="button">Clear</button>
             <button type="button" class="button">Download</button>
+
+            <-- tools -->
+            <button type="button" id='circleFunction' value='circleFunction'>Circle</button>
             <button type="button" id='lineFunction'>Line</button>
             <button type="button" id='squareFunction'>Square</button>
 
+            <-- Variable setters -->
             <label for="color-picker">Pen Color</label>
             <input onInput="colorStroke = this.value" type="color" class="color-picker">
             <label for="pen-range">Line Width</label>
@@ -35,5 +41,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="./assets/js/mouseMethods.js"></script>
     <script src="./assets/js/LineDrawing.js"></script>
-    <script src="./assets/js/squareDrawing.js"></script>
+    <script src="./assets/js/CircleDrawing.js"></script>
+    <script src="./assets/js/rectangleDrawing.js"></script>
 </body>
