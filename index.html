@@ -13,15 +13,16 @@
 
 <body>
         <div id="canvasContainer">
-            <canvas id="canvas"></canvas>
             <canvas id='canvasDraft'></canvas>
+            <canvas id="canvas">Your browser doesn't support canvas get a better computer.</canvas>
         </div>
         <div class="tools">
             <button onClick="undo_last()" type="button" class="button">Undo</button>
             <button onClick="redo_last()" type="button" class="button">Redo</button>
             <button onClick="clear_canvas()" type="button" class="button">Clear</button>
             <button type="button" class="button">Download</button>
-            <button type="button" id='lineFunction' value='lineFunction'>Line</button>
+            <button type="button" id='lineFunction'>Line</button>
+            <button type="button" id='squareFunction'>Square</button>
 
             <label for="color-picker">Pen Color</label>
             <input onInput="colorStroke = this.value" type="color" class="color-picker">
@@ -34,4 +35,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="./assets/js/mouseMethods.js"></script>
     <script src="./assets/js/LineDrawing.js"></script>
+    <script src="./assets/js/squareDrawing.js"></script>
 </body>

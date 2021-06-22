@@ -3,10 +3,10 @@
 }
 
 #canvas {
-    position: absolute;
     border: 1px solid black;
 }
 
 #canvasDraft {
+    position: absolute;
     background-color: transparent;
 }
