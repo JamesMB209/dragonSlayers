@@ -1,10 +1,10 @@
 colours picker for stroke style (fillcolor tbc) <-- done
-line weight/thickness
+line weight/thickness 
 fill
-canvas height/width adjustable * <-- J: set as according to screen width
+canvas height/width adjustable * <-- J: set as according to screen width <--done
 
 drawing functions -
-pen
+pen <--ok
 square
 circle
 arc

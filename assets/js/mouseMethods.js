@@ -111,3 +111,8 @@ class MouseEvents {
     onMouseUp() {}
     onMouseMove() {}
 }
+
+// $(document).on('input change', '#pen-range', function() {
+//     $('#range_num').html($(this).val());
+//     width = $(this).val();
+// })
