@@ -17,16 +17,23 @@
 
 <body>
     <div class="field">
-        <canvas id="canvas"></canvas>
-        <canvas id='canvasDraft'></canvas>
+        <div id="canvasContainer">
+            <canvas id="canvas"></canvas>
+            <canvas id='canvasDraft'></canvas>
+        </div>
         <div class="tools">
-            <button type="button" class="button">Undo</button>
+            <button onClick="undo_last()" type="button" class="button">Undo</button>
+            <button onClick="redo_last()" type="button" class="button">Redo</button>
             <button onClick="clear_canvas()" type="button" class="button">Clear</button>
             <button type="button" class="button">Download</button>
             <button type="button" id='lineFunction' value='lineFunction'>Line</button>
 
-            <input oninput="draw_color = this.value" type="color" class="color-picker">
-            <input type="range" min="1" max="100" class="pen-range" oninput="draw_width = this.value">
+            <label for="color-picker">Pen Color</label>
+            <input onInput="colorStroke = this.value" type="color" class="color-picker">
+            <label for="pen-range">Line Width</label>
+            <input type="range" min="1" max="100" class="pen-range" onInput="width = this.value">
+            <label for="color-picker">Fill Color</label>
+            <input onInput="colorFill = this.value" type="color" class="color-picker">
         </div>
     </div>
 
@@ -35,4 +42,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/main.css" type="text/css" />
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/LineDrawing.js"></script>
 </body>

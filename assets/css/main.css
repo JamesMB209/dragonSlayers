@@ -1,0 +1,8 @@
+canvas {
+    border: 1px solid black;
+    /* position: unset; */
+}
+
+#canvasDraft {
+    background-color: transparent;
+}
