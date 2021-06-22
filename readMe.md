@@ -1,10 +1,10 @@
 TO DO LIST:
 
-circle < -- working
-arc - gabe
+circle < -- gabe -- done
+quadratic curve - gabe -- done
 triangle - joyce
 Straight Line -- joyce
-erase 
+erase -- gabe
 text <-- James
 icon tool * - gabes
 image import *
