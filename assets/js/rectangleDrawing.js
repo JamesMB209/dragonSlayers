@@ -1,4 +1,4 @@
-class rectangleFunction extends MouseEvents {
+class RectangleFunction extends MouseEvents {
     constructor(context, contextDraft) {
         super();
         this.context = context;
@@ -15,6 +15,8 @@ class rectangleFunction extends MouseEvents {
         this.contextDraft.fillStyle = colorFill;
         this.context.strokeStyle = colorStroke;
         this.contextDraft.strokeStyle = colorStroke;
+        this.context.lineWidth = lineWidth;
+        this.contextDraft.lineWidth = lineWidth;
     }
 
     onMouseDrag([xPos, yPos]) {
@@ -51,6 +53,6 @@ class rectangleFunction extends MouseEvents {
 Append the event listener for this function.
 ****************************************************************************/
 $("#rectangleFunction").click(function () {
-    currentFunction = new rectangleFunction(context, contextDraft);
+    currentFunction = new RectangleFunction(context, contextDraft);
     console.log("The square tool was selected.")
 });
