@@ -63,7 +63,6 @@ $("#penFunction").click(function () {
     currentFunction = new PenFunction(context, contextDraft);
 });
 
-
 /***************************************************************************
 This tool has been set as the defualt tool from the below code. 
 MOVE THIS CODE TO ANOTHER .JS TO CHANGE THE DEFAULT.
