@@ -4,32 +4,32 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/ico" />
-    <style>
-        canvas {
-            border: 2px solid black;
-        }
-    </style>
+    
+    <title>DragonSlayers canvas project</title>
+    
+    <link rel="stylesheet" href="./assets/css/main.css" type="text/css" />
 </head>
 
 <body>
-    <div class="field">
         <div id="canvasContainer">
-            <canvas id="canvas"></canvas>
             <canvas id='canvasDraft'></canvas>
+            <canvas id="canvas">Your browser doesn't support canvas get a better computer.</canvas>
         </div>
         <div class="tools">
+          
+            <-- Control buttons -->
             <button onClick="undo_last()" type="button" class="button">Undo</button>
             <button onClick="redo_last()" type="button" class="button">Redo</button>
             <button onClick="clear_canvas()" type="button" class="button">Clear</button>
             <button type="button" class="button">Download</button>
-            <button type="button" id='lineFunction' value='lineFunction'>Line</button>
+
+            <-- tools -->
             <button type="button" id='circleFunction' value='circleFunction'>Circle</button>
+            <button type="button" id='lineFunction'>Line</button>
+            <button type="button" id='squareFunction'>Square</button>
 
-
+            <-- Variable setters -->
             <label for="color-picker">Pen Color</label>
             <input onInput="colorStroke = this.value" type="color" class="color-picker">
             <label for="pen-range">Line Width</label>
@@ -37,13 +37,10 @@
             <label for="color-picker">Fill Color</label>
             <input onInput="colorFill = this.value" type="color" class="color-picker">
         </div>
-    </div>
-
-
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/css/main.css" type="text/css" />
     <script src="./assets/js/mouseMethods.js"></script>
     <script src="./assets/js/LineDrawing.js"></script>
     <script src="./assets/js/CircleDrawing.js"></script>
+    <script src="./assets/js/rectangleDrawing.js"></script>
 </body>
