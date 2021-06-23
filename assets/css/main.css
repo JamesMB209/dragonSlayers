@@ -1,3 +1,6 @@
+html{
+    cursor: url('../images/silverlightswordsmall.png'), auto;
+}
 #canvasContainer {
     position: relative;
 }
