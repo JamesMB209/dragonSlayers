@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 TO DO LIST:
 polygon -- joyce --almost done 
 
@@ -7,16 +8,33 @@ triangle - joyce (with bug)
 
 erase <--done
 text <-- James
+=======
+
+
+drawing functions -
+circle < -- working
+arc - gabe
+triangle - joyce
+Straight Line -- joyce
+erase 
+text <-- James
+icon tool * - gabes
+>>>>>>> Gabe
 image import *
 download * joyce
 
 undo/redo <--waiting for test
 
+<<<<<<< HEAD
 DONE:
+=======
+DONE
+>>>>>>> Gabe
 colours picker for stroke style (fillcolor tbc) <-- done
 line weight/thickness  <-- done
 fill < -- done
 canvas height/width adjustable * <-- J: set as according to screen width <--done
+<<<<<<< HEAD
 pen <--done
 rectangle <--- done
 clear <--done
@@ -28,6 +46,13 @@ straight Line -- done
 
 transparency <--done
 Straight Line <-- Done
+=======
+
+
+pen <--done
+rectangle <--- done
+clear <--done
+>>>>>>> Gabe
 
 ///================== Rating Requirement from Sam ========================
 
