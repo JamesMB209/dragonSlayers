@@ -1,5 +1,11 @@
 TO DO LIST:
 polygon -- joyce --almost done 
+
+circle < -- working
+arc - gabe
+triangle - joyce (with bug)
+
+erase <--done
 text <-- James
 image import *
 download * joyce
@@ -20,6 +26,8 @@ erase -- done
 icon tool* --done
 straight Line -- done
 
+transparency <--done
+Straight Line <-- Done
 
 ///================== Rating Requirement from Sam ========================
 

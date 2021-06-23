@@ -11,14 +11,16 @@ class circleFunction extends MouseEvents {
         this.contextDraft.strokeStyle = colorStroke;
         this.context.fillStyle = colorFill;
         this.contextDraft.fillStyle = colorFill;
+        this.context.globalAlpha = transparency;
+        this.contextDraft.globalAlpha = transparency;
         this.context.lineWidth = lineWidth;
         this.contextDraft.lineWidth = lineWidth;
         //this.contextDraft.beginPath();
-       
+
         //this.contextDraft.moveTo(xPos, yPos);
-     
-        this.drawStart([xPos,yPos]);
-   
+
+        this.drawStart([xPos, yPos]);
+
 
     }
 
@@ -26,7 +28,7 @@ class circleFunction extends MouseEvents {
         console.log("onMouseDrag is running")
         this.draw([xPos, yPos]);
         console.log('draw')
-       
+
     }
 
     onMouseUp([xPos, yPos]) {
@@ -35,32 +37,34 @@ class circleFunction extends MouseEvents {
         console.log('clear')
         var xEnd = xPos;
         var yEnd = yPos;
-        var radiusEnd = (((xEnd-xStart)**2)+((yEnd-yStart)**2))**(1/2);
+        var radiusEnd = (((xEnd - xStart) ** 2) + ((yEnd - yStart) ** 2)) ** (1 / 2);
         console.log(radiusEnd)
         this.context.beginPath();
-        this.context.arc(xStart, yStart,radiusEnd,0,2*Math.PI);
+        this.context.arc(xStart, yStart, radiusEnd, 0, 2 * Math.PI);
         this.context.stroke();
+        this.context.fill();
         console.log('stick')
         dragging = false;
         restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
         index ++;
     }
-    drawStart([xPos,yPos]){
+    drawStart([xPos, yPos]) {
         console.log('drawstart');
         globalThis.xStart = xPos;
         globalThis.yStart = yPos;
-        this.contextDraft.arc(xStart, yStart,0,0,2*Math.PI); //starting circle with a radius of zero
-        
+        this.contextDraft.arc(xStart, yStart, 0, 0, 2 * Math.PI); //starting circle with a radius of zero
+
     }
     draw([xPos, yPos]) {
         console.log("draw is running")
         this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
         this.contextDraft.beginPath();
-        var radius = (((xPos-xStart)**2)+((yPos-yStart)**2))**(1/2)
+        var radius = (((xPos - xStart) ** 2) + ((yPos - yStart) ** 2)) ** (1 / 2)
         console.log(radius)
-        this.contextDraft.arc(xStart, yStart,radius,0,2*Math.PI); //starting circle with a radius of zero
+        this.contextDraft.arc(xStart, yStart, radius, 0, 2 * Math.PI); //starting circle with a radius of zero
         console.log("circle resize is okay")
         this.contextDraft.stroke();
+        this.contextDraft.fill();
         console.log("draw finish")
     }
 
