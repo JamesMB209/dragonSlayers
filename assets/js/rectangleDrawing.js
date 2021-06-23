@@ -45,11 +45,6 @@ class RectangleFunction extends MouseEvents {
     }
 }
 
-
-
-
-
-
 /***************************************************************************
 Append the event listener for this function.
 ****************************************************************************/

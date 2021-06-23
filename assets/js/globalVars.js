@@ -26,10 +26,10 @@ let redo_array = [];
 let reindex = -1;
 
 // Setting up the canvas sizes
-canvas.width = window.innerWidth - 60;
-canvas.height = 400;
-canvasDraft.width = window.innerWidth - 60;
-canvasDraft.height = 400;
+canvas.width = window.innerWidth / 12 * 10 -1;
+canvas.height = window.innerHeight;
+canvasDraft.width = window.innerWidth / 12 * 10 -1;
+canvasDraft.height = window.innerHeight;
 
 
 /***************************************************************************

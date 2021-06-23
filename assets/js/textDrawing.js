@@ -27,7 +27,6 @@ class TextFunction extends MouseEvents {
 
     onKeyup(pressedKey) {
         //Proccess the input so the first key clears the text box and then add the charcter, with "Backspace" logic.
-        
         switch (this.keyPressCount) {
             case 0:
                 this.inputString = "";
@@ -79,18 +78,12 @@ class TextFunction extends MouseEvents {
         this.contextDraft.fillStyle = colorStroke;
         this.contextDraft.fillText(`${this.inputString}`, this.xStart, this.yStart + this.offSet);
     }
-
 }
-
 
 /***************************************************************************
 Append the event listener for this function.
 ****************************************************************************/
 $("#textFunction").click(function () {
     currentFunction = new TextFunction(context, contextDraft);
-
-    //Change the cursor to "croshair".
-    // $("#canvasDraft").css("cursor", "crosshair");
-
-    // console.log("The text tool was selected.")
+    console.log("The text tool was selected.")
 });
