@@ -2,9 +2,9 @@ TO DO LIST:
 
 circle < -- working
 arc - gabe
-triangle - joyce
-Straight Line -- joyce
-erase 
+triangle - joyce (with bug)
+
+erase <--done
 text <-- James
 icon tool * - gabes
 image import *
@@ -20,6 +20,8 @@ canvas height/width adjustable * <-- J: set as according to screen width <--done
 pen <--done
 rectangle <--- done
 clear <--done
+transparency <--done
+Straight Line <-- Done
 
 ///================== Rating Requirement from Sam ========================
 

@@ -23,7 +23,7 @@ $('#canvasDraft').mousemove(function(e) {
     if (dragging == true) {
         currentFunction.onMouseDrag([xPos, yPos]); //changed from onMouseMove
     } else {
-        currentFunction.onMouseMove([xPos, yPos]); 
+        currentFunction.onMouseMove([xPos, yPos]);
     }
 })
 

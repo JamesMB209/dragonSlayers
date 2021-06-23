@@ -17,6 +17,7 @@ let backgroundColour = "white";
 let colorStroke = "#black";
 let colorFill = backgroundColour;
 let lineWidth = 3;
+let transparency = 1;
 
 // Variables related to the Undo/Redo function.
 let restore_array = [];
@@ -38,4 +39,8 @@ canvasDraft.height = 400;
 // this function adds the number value of the selected line width next to the line span.
 $(document).on('input change', '#pen-range', function() {
     $('#range_num').html($(this).val());
+})
+
+$(document).on('input change', '#transparency-range', function() {
+    $('#tran_num').html($(this).val());
 })

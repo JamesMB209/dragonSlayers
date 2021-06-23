@@ -1,7 +1,17 @@
 function clear_canvas() {
+    // alert("are you sure?")
+    // location.reload();
     context.fillStyle = backgroundColour;
     context.clearRect(0, 0, canvas.width, canvas.height);
+    reindex = -1;
+    index = -1;
+    restore_array = [];
+    redo_array = [];
     console.log("clear function is working")
+    console.log("restore array", restore_array)
+    console.log("redo array", redo_array)
+    console.log("reindex", reindex)
+    console.log("index", index)
 }
 
 function undo_last() {
@@ -11,7 +21,7 @@ function undo_last() {
         reindex += 1;
         index -= 1;
         if (index < 0) {
-            clear_canvas();
+            context.clearRect(0, 0, canvas.width, canvas.height);
         } else {
             context.putImageData(restore_array[index], 0, 0);
         };
@@ -27,3 +37,8 @@ function redo_last() {
         index += 1;
     }
 }
+
+
+// Global variables for Polygon
+let undocount = 0;
+let redocount = 0;
