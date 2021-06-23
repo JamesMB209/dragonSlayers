@@ -10,3 +10,6 @@
     position: absolute;
     background-color: transparent;
 }
+#dragon{
+    display: none;
+}

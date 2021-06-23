@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>DragonSlayers canvas project</title>
-
+    <script
+      src="https://kit.fontawesome.com/c1667b7eee.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./assets/css/main.css" type="text/css" />
 </head>
 
@@ -30,7 +33,7 @@
             <button type="button" id='rectangleFunction'>Square</button>
             <button type="button" id='curveFunction'>Quadratic Curve</button>
             <button type="button" id='eraserFunction'>Eraser</button>
-
+            <button type="button" id='iconFunction'><i class="fas fa-dragon"></i><img id="dragon" src="./assets/images/dragon.png" alt=""></button>
             <!-- Variable setters -->
             <label for="color-picker">Pen Color</label>
             <input onInput="colorStroke = this.value" type="color" class="color-picker">
@@ -50,4 +53,5 @@
     <script src="./assets/js/straightLine.js"></script>
     <script src="assets/js/quadraticCurve.js"></script>
     <script src="/assets/js/eraserFunction.js"></script>
+    <script src="./assets/js/iconFunction.js"></script>
 </body>
