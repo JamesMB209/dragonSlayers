@@ -1,6 +1,5 @@
 TO DO LIST:
-triangle - joyce
-Straight Line -- joyce
+polygon -- joyce --almost done 
 text <-- James
 image import *
 download * joyce
@@ -19,6 +18,8 @@ circle -- done
 quadratic curve-- done
 erase -- done
 icon tool* --done
+straight Line -- done
+
 
 ///================== Rating Requirement from Sam ========================
 
