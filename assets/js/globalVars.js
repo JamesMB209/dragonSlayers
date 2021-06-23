@@ -14,7 +14,7 @@ let dragging = false;
 
 // Canvas tool settings/defaults
 let backgroundColour = "white";
-let colorStroke = "#black";
+let colorStroke = "black";
 let colorFill = backgroundColour;
 let lineWidth = 3;
 let transparency = 1;

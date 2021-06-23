@@ -29,7 +29,6 @@ class RectangleFunction extends MouseEvents {
     }
 
     onMouseUp([xPos, yPos]) {
-        dragging = false;
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
 
         //Render to the canvas.
