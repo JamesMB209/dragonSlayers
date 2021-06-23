@@ -43,7 +43,7 @@ class circleFunction extends MouseEvents {
         console.log('stick')
         dragging = false;
         restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
-        index += 1;
+        index ++;
     }
     drawStart([xPos,yPos]){
         console.log('drawstart');

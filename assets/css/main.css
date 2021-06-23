@@ -1,3 +1,6 @@
+html{
+    cursor: url('../images/silverlightswordsmall.png'), auto;
+}
 #canvasContainer {
     position: relative;
 }
@@ -9,4 +12,7 @@
 #canvasDraft {
     position: absolute;
     background-color: transparent;
+}
+#dragon{
+    display: none;
 }
