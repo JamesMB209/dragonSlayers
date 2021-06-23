@@ -1,12 +1,7 @@
 TO DO LIST:
-
-circle < -- gabe -- done
-quadratic curve - gabe -- done
 triangle - joyce
 Straight Line -- joyce
-erase -- gabe -- done
 text <-- James
-icon tool * - gabes
 image import *
 download * joyce
 
@@ -20,6 +15,10 @@ canvas height/width adjustable * <-- J: set as according to screen width <--done
 pen <--done
 rectangle <--- done
 clear <--done
+circle -- done
+quadratic curve-- done
+erase -- done
+icon tool* --done
 
 ///================== Rating Requirement from Sam ========================
 
