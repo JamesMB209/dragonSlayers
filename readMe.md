@@ -4,7 +4,7 @@ circle < -- gabe -- done
 quadratic curve - gabe -- done
 triangle - joyce
 Straight Line -- joyce
-erase -- gabe
+erase -- gabe -- done
 text <-- James
 icon tool * - gabes
 image import *
