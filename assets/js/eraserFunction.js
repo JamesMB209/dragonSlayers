@@ -28,7 +28,7 @@ class eraserFunction extends MouseEvents {
         console.log("onMouseUp is running")
         this.draw([xPos, yPos])
         dragging = false;
-
+        this.context.strokeStyle = "black";
         this.context.lineCap = "butt";
         this.context.lineJoin = "miter";
 
