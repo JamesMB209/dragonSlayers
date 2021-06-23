@@ -27,6 +27,7 @@ class TextFunction extends MouseEvents {
 
     onKeyup(pressedKey) {
         //Proccess the input so the first key clears the text box and then add the charcter, with "Backspace" logic.
+        
         switch (this.keyPressCount) {
             case 0:
                 this.inputString = "";
