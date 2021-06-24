@@ -9,13 +9,66 @@ html{
 }
 
 /* TOOL BAR */
-button {
+
+button{
     margin: 3px;
     width: 50%;
+    border-radius: 30px;
+}
+#undo,#redo, #circleFunction, #rectangleFunction, #straightLineFunction,
+#polygonFunction, #curveFunction {
+    width: 23.5%;
+    cursor: url('../images/silverlightswordsmall.png'), auto;
+}
+#clear{
+    margin-bottom: 20px;
+}
+#circleFunction, #rectangleFunction, #straightLineFunction
+ {
+    margin-top: 20px;
+}
+#polygonFunction, #curveFunction{
+    margin-bottom: 20px;
+}
+#downloadFunction{
+    margin-bottom: 20px;
+}
+#clear, #penFunction, #eraserFunction, #textFunction,
+#circleFunction, #rectangleFunction, #straightLineFunction,
+#polygonFunction, #curveFunction, #iconFunction, #downloadFunction
+{
+    cursor: url('../images/silverlightswordsmall.png'), auto;
+}
+label{
+    cursor: url('../images/silverlightswordsmall.png'), auto;
+}
+input{
+    cursor: url('../images/silverlightswordsmall.png'), auto;
+}
+
+.icons{
+    height: 16px;
+    width: 16px;
+}
+.fa-fire{
+    margin-left: 5px;
+    
+    color: rgb(231, 20, 20);
 }
 
 input {
     width: 80%;
+}
+#bars{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 20px;
+    color: white;
+    background-image: url('../images/firebackground.jpeg');
+    background-position: center;
+    background-size: cover;
 }
 
 /* CANVAS */
@@ -26,9 +79,11 @@ input {
 #canvasDraft {
     position: absolute;
     background-color: transparent;
+    
 }
 
 /* hahah what the fuck is this for? */
 #dragon{
     display: none;
 }
+

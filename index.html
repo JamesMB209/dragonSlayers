@@ -28,26 +28,35 @@
                 <img id="logo" src="./assets/images/dragon.png" alt="">
 
                 <div class="my-2">
-                    <button onClick="undo_last()" type="button" id="undo" class="button">Undo</button>
-                    <button onClick="redo_last()" type="button" id="redo" class="button">Redo</button>
-                    <button onClick="clear_canvas()" type="button" id="clear" class="button">Clear</button>
+                    <button onClick="undo_last()" type="button" id="undo" class="button"><i class="fas fa-undo"></i></button>
+                    <button onClick="redo_last()" type="button" id="redo" class="button"><i class="fas fa-redo"></i></button>
+                    <button onClick="clear_canvas()" type="button" id="clear" class="button"><i class="fas fa-trash-alt"></i></button>
                 </div>
                 <!-- tools -->
                 <div class="my-2">
-                    <button type="button" id='circleFunction'>Circle</button>
-                    <button type="button" id='penFunction'>Pen</button>
-                    <button type="button" id='rectangleFunction'>Square</button>
-                    <button type="button" id='straightLineFunction'>Straight Line</button>
-                    <button type="button" id='polygonFunction'>Polygon</button>
-                    <button type="button" id='curveFunction'>Quadratic Curve</button>
-                    <button type="button" id="textFunction">Text</button>
-                    <button type="button" id='eraserFunction'>Eraser</button>
+                    <button type="button" id='penFunction'><i class="fas fa-pen"></i></button>
+                    <button type="button" id='eraserFunction'><i class="fas fa-eraser"></i></button>
+                    <button type="button" id="textFunction"><i class="fas fa-font"></i></button><br>
+                    <button type="button" id='circleFunction'><i class="far fa-circle"></i></button>
+                    <button type="button" id='rectangleFunction'><i class="far fa-square"></i></button>
+                    <button type="button" id='straightLineFunction'><img src="./assets/images/straightLine.png" class='icons' alt=""></button>
+                    <button type="button" id='polygonFunction'><img src="./assets/images/polygon.png" class='icons' alt=""></button>
+                    <button type="button" id='curveFunction'><img src="./assets/images/quadraticCurve.jpg" class='icons' alt=""></button>
+   
                     <button type="button" id='iconFunction'><i class="fas fa-dragon"></i><img id="dragon" src="./assets/images/dragon.png" alt=""></button>
-                    <button type="button" id="downloadFunction">Download</button>
+                    <button type="button" id="downloadFunction"><i class="fas fa-download"></i></button> 
+                    <div class="container">
+                        <div class="row mx-auto">
+                            <div class="custom-file mb-3">
+                                <input type="file" class="custom-file-input" id="upload-file">
+                                <!-- <label for="upload-file" class="custom-file-label"></label> -->
+                            </div>
+                        </div>
+                    </div> 
                 </div>
 
                 <!-- Variable setters -->
-                <div class="my-2">
+                <div class="my-2" id="bars">
                     <label for="color-picker">Pen Color</label>
                     <input onInput="colorStroke = this.value" type="color" class="color-picker">
                     <label for="color-picker">Fill Color</label>
@@ -82,5 +91,7 @@
     <script src="./assets/js/downloadFunction.js"></script>
     <script src="./assets/js/polygonDrawing.js"></script>
     <script src="./assets/js/textDrawing.js"></script>
+    <script src="./assets/js/stylingButtons.js"></script>
+    <script src="./assets/js/uploadFunction.js"></script>
 
 </body>
