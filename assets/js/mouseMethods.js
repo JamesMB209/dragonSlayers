@@ -11,32 +11,32 @@ function mousePos(e) {
     // console.log(`x: ${xPos} y: ${yPos}`)
 }
 
-$('#canvasDraft').mousedown(function (e) {
+$('#canvas').mousedown(function (e) {
     dragging = true;
-    console.log("down");
+    // console.log("down");
     mousePos(e);
     currentFunction.onMouseDown([xPos, yPos]);
 });
 
-$('#canvasDraft').mousemove(function (e) {
+$('#canvas').mousemove(function (e) {
     mousePos(e);
     if (dragging == true) {
-        currentFunction.onMouseDrag([xPos, yPos]); //changed from onMouseMove
+        currentFunction.onMouseDrag([xPos, yPos]);
     } else {
         currentFunction.onMouseMove([xPos, yPos]);
     }
 })
 
-$('#canvasDraft').mouseup(function (e) {
+$('#canvas').mouseup(function (e) {
     dragging = false;
-    console.log("up")
+    // console.log("up")
     mousePos(e);
     currentFunction.onMouseUp([xPos, yPos]);
 });
 
-$('#canvasDraft').mouseleave(function (e) {
+$('#canvas').mouseleave(function (e) {
     dragging = false;
-    console.log("leave");
+    // console.log("leave");
     mousePos(e);
     currentFunction.onMouseLeave([xPos, yPos]);
 });
