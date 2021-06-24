@@ -13,6 +13,8 @@ class RectangleFunction extends MouseEvents {
         //Set colour and style information for both canvas'
         this.context.fillStyle = colorFill;
         this.contextDraft.fillStyle = colorFill;
+        this.context.globalAlpha = transparency;
+        this.contextDraft.globalAlpha = transparency;
         this.context.strokeStyle = colorStroke;
         this.contextDraft.strokeStyle = colorStroke;
         this.context.lineWidth = lineWidth;
@@ -27,7 +29,6 @@ class RectangleFunction extends MouseEvents {
     }
 
     onMouseUp([xPos, yPos]) {
-        dragging = false;
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
 
         //Render to the canvas.
@@ -44,15 +45,10 @@ class RectangleFunction extends MouseEvents {
     }
 }
 
-
-
-
-
-
 /***************************************************************************
 Append the event listener for this function.
 ****************************************************************************/
-$("#rectangleFunction").click(function () {
+$("#rectangleFunction").click(function() {
     currentFunction = new RectangleFunction(context, contextDraft);
     console.log("The square tool was selected.")
 });
