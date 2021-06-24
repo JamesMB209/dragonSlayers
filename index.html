@@ -61,25 +61,29 @@
             </div>
             <div class="col-10 p-0 m-0">
                 <div id="canvasContainer">
-                    <canvas id='canvasDraft'></canvas>
+                    <!-- I've just had to swap these after adding position absoloute to both. Not sure why -->
                     <canvas id="canvas">Your browser doesn't support canvas get a better computer.</canvas>
+                    <canvas id='canvasDraft'></canvas>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- main methods -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="./assets/js/globalVars.js"></script>
     <script src="./assets/js/mouseMethods.js"></script>
     <script src="./assets/js/toolMethods.js"></script>
+
+    <!-- tooltips -->
     <script src="./assets/js/circleDrawing.js"></script>
     <script src="./assets/js/rectangleDrawing.js"></script>
-    <script src="./assets/js/penDrawing.js"></script>
-    <script src="./assets/js/straightLine.js"></script>
-    <script src="assets/js/quadraticCurve.js"></script>
-    <script src="/assets/js/eraserFunction.js"></script>
-    <script src="./assets/js/iconFunction.js"></script>
     <script src="./assets/js/polygonDrawing.js"></script>
+    <script src="./assets/js/penDrawing.js"></script>
     <script src="./assets/js/textDrawing.js"></script>
+    <script src="./assets/js/eraserFunction.js"></script>
+    <script src="./assets/js/iconFunction.js"></script>
+    <script src="./assets/js/quadraticCurve.js"></script>
+    <script src="./assets/js/straightLine.js"></script>
     <script src="./assets/js/fillBucket.js"></script>
 </body>

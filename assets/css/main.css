@@ -23,17 +23,16 @@ input {
     position: relative;
 }
 
-#canvas {
-    border: black 1px solid;
-}
 #canvasDraft {
     position: absolute;
-    background-color: transparent;
     border: black 1px solid;
-    display: none;
+    background-color: transparent;
+}
+#canvas {
+    position: absolute;
+    border: black 1px solid;
 }
 
-/* hahah what the fuck is this for? */
 #dragon{
     display: none;
 }

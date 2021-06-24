@@ -43,10 +43,10 @@ canvasDraft.height = canvas.height;
 ****************************************************************************/
 
 // this function adds the number value of the selected line width next to the line span.
-$(document).on('input change', '#pen-range', function() {
+$(document).on('input change', '#pen-range', function () {
     $('#range_num').html($(this).val());
 })
 
-$(document).on('input change', '#transparency-range', function() {
+$(document).on('input change', '#transparency-range', function () {
     $('#tran_num').html($(this).val());
 })
