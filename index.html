@@ -31,7 +31,6 @@
                     <button onClick="undo_last()" type="button" id="undo" class="button">Undo</button>
                     <button onClick="redo_last()" type="button" id="redo" class="button">Redo</button>
                     <button onClick="clear_canvas()" type="button" id="clear" class="button">Clear</button>
-                    <button type="button" class="button">Download</button>
                 </div>
                 <!-- tools -->
                 <div class="my-2">
@@ -44,25 +43,8 @@
                     <button type="button" id="textFunction">Text</button>
                     <button type="button" id='eraserFunction'>Eraser</button>
                     <button type="button" id='iconFunction'><i class="fas fa-dragon"></i><img id="dragon" src="./assets/images/dragon.png" alt=""></button>
+                    <button type="button" id="downloadFunction">Download</button>
                 </div>
-
-
-            <!-- tools -->
-            <button type="button" id='circleFunction'>Circle</button>
-            <button type="button" id='penFunction'>Pen</button>
-            <button type="button" id='rectangleFunction'>Square</button>
-            <button type="button" id='curveFunction'>Quadratic Curve</button>
-            <button type="button" id='eraserFunction'>Eraser</button>
-            <button type="button" id='iconFunction'><i class="fas fa-dragon"></i><img id="dragon" src="./assets/images/dragon.png" alt=""></button>
-            <button type="button" id="downloadFunction">Download</button>
-              
-            <!-- Variable setters -->
-            <label for="color-picker">Pen Color</label>
-            <input onInput="colorStroke = this.value" type="color" class="color-picker">
-            <label for="pen-range">Line Width : </label><span type="text" id="range_num"></span>
-            <input onInput="lineWidth = this.value" type="range" min="1" max="100" id="pen-range">
-            <label for="color-picker">Fill Color</label>
-            <input onInput="colorFill = this.value" type="color" class="color-picker">
 
                 <!-- Variable setters -->
                 <div class="my-2">
