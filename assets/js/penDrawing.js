@@ -40,13 +40,8 @@ class PenFunction extends MouseEvents {
 
     draw([xPos, yPos]) {
         console.log("draw is running")
-        // this.context.beginPath();
         this.context.lineTo(xPos, yPos);
         console.log("lineTO is okay")
-        // this.context.moveTo(xPos, yPos);
-        // console.log("moveto is okay")
-        // this.context.closePath();
-        // console.log("closepath okay")
         this.context.stroke();
         console.log("draw finish")
     }
@@ -57,7 +52,7 @@ class PenFunction extends MouseEvents {
 Append the event listener for this function.
 ****************************************************************************/
 
-$("#penFunction").click(function () {
+$("#penFunction").click(function() {
     console.log("PenFunction is working")
     console.log("check", context)
     currentFunction = new PenFunction(context, contextDraft);

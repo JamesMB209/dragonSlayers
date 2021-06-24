@@ -1,65 +1,92 @@
 /* PAGE CONTROLS */
-html{
+
+html {
     cursor: url('../images/silverlightswordsmall.png'), auto;
 }
 
+
 /* LOGO */
+
 #logo {
     width: 50%;
 }
 
+
 /* TOOL BAR */
 
-button{
+button {
     margin: 3px;
     width: 50%;
     border-radius: 30px;
 }
-#undo,#redo, #circleFunction, #rectangleFunction, #straightLineFunction,
-#polygonFunction, #curveFunction {
+
+#undo,
+#redo,
+#circleFunction,
+#rectangleFunction,
+#straightLineFunction,
+#polygonFunction,
+#curveFunction {
     width: 23.5%;
     cursor: url('../images/silverlightswordsmall.png'), auto;
 }
-#clear{
+
+#clear {
     margin-bottom: 20px;
 }
-#circleFunction, #rectangleFunction, #straightLineFunction
- {
+
+#circleFunction,
+#rectangleFunction,
+#straightLineFunction {
     margin-top: 20px;
 }
-#polygonFunction, #curveFunction{
+
+#polygonFunction,
+#curveFunction {
     margin-bottom: 20px;
 }
-#downloadFunction{
+
+#downloadFunction {
     margin-bottom: 20px;
 }
-#clear, #penFunction, #eraserFunction, #textFunction,
-#circleFunction, #rectangleFunction, #straightLineFunction,
-#polygonFunction, #curveFunction, #iconFunction, #downloadFunction
-{
-    cursor: url('../images/silverlightswordsmall.png'), auto;
-}
-label{
-    cursor: url('../images/silverlightswordsmall.png'), auto;
-}
-input{
+
+#clear,
+#penFunction,
+#eraserFunction,
+#textFunction,
+#circleFunction,
+#rectangleFunction,
+#straightLineFunction,
+#polygonFunction,
+#curveFunction,
+#iconFunction,
+#downloadFunction {
     cursor: url('../images/silverlightswordsmall.png'), auto;
 }
 
-.icons{
+label {
+    cursor: url('../images/silverlightswordsmall.png'), auto;
+}
+
+input {
+    cursor: url('../images/silverlightswordsmall.png'), auto;
+}
+
+.icons {
     height: 16px;
     width: 16px;
 }
-.fa-fire{
+
+.fa-fire {
     margin-left: 5px;
-    
     color: rgb(231, 20, 20);
 }
 
 input {
     width: 80%;
 }
-#bars{
+
+#bars {
     padding-top: 15px;
     padding-bottom: 15px;
     border-style: solid;
@@ -71,7 +98,9 @@ input {
     background-size: cover;
 }
 
+
 /* CANVAS */
+
 #canvasContainer {
     position: relative;
 }
@@ -79,11 +108,20 @@ input {
 #canvasDraft {
     position: absolute;
     background-color: transparent;
-    
 }
+
+#canvas {
+    margin: 10% 10% 10% 10%;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: red;
+    border-width: 10px;
+    background-color: cornsilk;
+}
+
 
 /* hahah what the fuck is this for? */
-#dragon{
+
+#dragon {
     display: none;
 }
-

@@ -17,6 +17,11 @@ function clear_canvas() {
 function undo_last() {
     if (index >= 0) {
         console.log("before index", index)
+        if (polygonactive) {
+            polygonundo = true;
+        } else {
+            polygonundo = false;
+        }
         redo_array.push(restore_array.pop());
         reindex += 1;
         index -= 1;
@@ -31,14 +36,14 @@ function undo_last() {
 
 function redo_last() {
     if (reindex > -1) {
+        if (polygonactive) {
+            polygonredo = true;
+        } else {
+            polygonredo = false;
+        }
         context.putImageData(redo_array[reindex], 0, 0);
         restore_array.push(redo_array.pop());
         reindex -= 1;
         index += 1;
     }
 }
-
-
-// Global variables for Polygon
-let undocount = 0;
-let redocount = 0;

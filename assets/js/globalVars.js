@@ -11,6 +11,9 @@ let contextDraft = canvasDraft.getContext("2d");
 // Global conditions
 let currentFunction;
 let dragging = false;
+let polygonactive = false;
+let polygonundo = false;
+let polygonredo = false;
 
 // Canvas tool settings/defaults
 let backgroundColour = "white";
@@ -26,9 +29,9 @@ let redo_array = [];
 let reindex = -1;
 
 // Setting up the canvas sizes
-canvas.width = window.innerWidth / 12 * 10;
+canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-canvasDraft.width = window.innerWidth / 12 * 10;
+canvasDraft.width = window.innerWidth;
 canvasDraft.height = window.innerHeight;
 
 
