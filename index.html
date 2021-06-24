@@ -27,14 +27,14 @@
                 <!-- Control buttons -->
                 <img id="logo" src="./assets/images/dragon.png" alt="">
 
-                <div class="my-5">
+                <div class="my-2">
                     <button onClick="undo_last()" type="button" id="undo" class="button">Undo</button>
                     <button onClick="redo_last()" type="button" id="redo" class="button">Redo</button>
                     <button onClick="clear_canvas()" type="button" id="clear" class="button">Clear</button>
                     <button type="button" class="button">Download</button>
                 </div>
                 <!-- tools -->
-                <div class="my-5">
+                <div class="my-2">
                     <button type="button" id='circleFunction'>Circle</button>
                     <button type="button" id='penFunction'>Pen</button>
                     <button type="button" id='rectangleFunction'>Square</button>
@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- Variable setters -->
-                <div class="my-5">
+                <div class="my-2">
                     <label for="color-picker">Pen Color</label>
                     <input onInput="colorStroke = this.value" type="color" class="color-picker">
                     <label for="color-picker">Fill Color</label>
