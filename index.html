@@ -46,6 +46,24 @@
                     <button type="button" id='iconFunction'><i class="fas fa-dragon"></i><img id="dragon" src="./assets/images/dragon.png" alt=""></button>
                 </div>
 
+
+            <!-- tools -->
+            <button type="button" id='circleFunction'>Circle</button>
+            <button type="button" id='penFunction'>Pen</button>
+            <button type="button" id='rectangleFunction'>Square</button>
+            <button type="button" id='curveFunction'>Quadratic Curve</button>
+            <button type="button" id='eraserFunction'>Eraser</button>
+            <button type="button" id='iconFunction'><i class="fas fa-dragon"></i><img id="dragon" src="./assets/images/dragon.png" alt=""></button>
+            <button type="button" id="downloadFunction">Download</button>
+              
+            <!-- Variable setters -->
+            <label for="color-picker">Pen Color</label>
+            <input onInput="colorStroke = this.value" type="color" class="color-picker">
+            <label for="pen-range">Line Width : </label><span type="text" id="range_num"></span>
+            <input onInput="lineWidth = this.value" type="range" min="1" max="100" id="pen-range">
+            <label for="color-picker">Fill Color</label>
+            <input onInput="colorFill = this.value" type="color" class="color-picker">
+
                 <!-- Variable setters -->
                 <div class="my-2">
                     <label for="color-picker">Pen Color</label>
@@ -64,6 +82,7 @@
                     <canvas id="canvas">Your browser doesn't support canvas get a better computer.</canvas>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -78,6 +97,8 @@
     <script src="assets/js/quadraticCurve.js"></script>
     <script src="/assets/js/eraserFunction.js"></script>
     <script src="./assets/js/iconFunction.js"></script>
+    <script src="./assets/js/downloadFunction.js"></script>
     <script src="./assets/js/polygonDrawing.js"></script>
     <script src="./assets/js/textDrawing.js"></script>
+
 </body>
