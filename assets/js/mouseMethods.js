@@ -13,7 +13,7 @@ function mousePos(e) {
 
 $('#canvasDraft').mousedown(function (e) {
     dragging = true;
-    console.log("down");
+    // console.log("down");
     mousePos(e);
     currentFunction.onMouseDown([xPos, yPos]);
 });
@@ -21,7 +21,7 @@ $('#canvasDraft').mousedown(function (e) {
 $('#canvasDraft').mousemove(function (e) {
     mousePos(e);
     if (dragging == true) {
-        currentFunction.onMouseDrag([xPos, yPos]); //changed from onMouseMove
+        currentFunction.onMouseDrag([xPos, yPos]);
     } else {
         currentFunction.onMouseMove([xPos, yPos]);
     }
@@ -29,14 +29,14 @@ $('#canvasDraft').mousemove(function (e) {
 
 $('#canvasDraft').mouseup(function (e) {
     dragging = false;
-    console.log("up")
+    // console.log("up")
     mousePos(e);
     currentFunction.onMouseUp([xPos, yPos]);
 });
 
 $('#canvasDraft').mouseleave(function (e) {
     dragging = false;
-    console.log("leave");
+    // console.log("leave");
     mousePos(e);
     currentFunction.onMouseLeave([xPos, yPos]);
 });
@@ -44,7 +44,7 @@ $('#canvasDraft').mouseleave(function (e) {
 $('html').keyup(
     function (e) {
         currentFunction.onKeyup(e.key)
-});
+    });
 
 class MouseEvents {
     constructor() { }

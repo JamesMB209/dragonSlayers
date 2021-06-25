@@ -57,4 +57,3 @@ $("#eraserFunction").click(function () {
     console.log("check", context)
     currentFunction = new eraserFunction(context, contextDraft);
 });
-currentFunction = new eraserFunction(context, contextDraft);

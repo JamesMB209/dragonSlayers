@@ -128,16 +128,17 @@ input {
     margin-top: 10%;
     margin-left: 13%;
     margin-right: auto;
-
-    
    
 }
 #canvasDraft {
     position: absolute;
+    border: black 1px solid;
     background-color: transparent;
 }
+
 #canvas{
     background-color: white;
+
 }
 
 #canvas, #canvasDraft {
@@ -145,10 +146,6 @@ input {
     border-width: 2px;
     border-radius: 30px;
 }
-
-
-
-/* hahah what the fuck is this for? */
 
 #dragon {
     display: none;

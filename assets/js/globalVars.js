@@ -16,8 +16,8 @@ let polygonundo = false;
 let polygonredo = false;
 
 // Canvas tool settings/defaults
-let backgroundColour = "white";
-let colorStroke = "black";
+let backgroundColour = "#ffffff";
+let colorStroke = "#000000";
 let colorFill = backgroundColour;
 let lineWidth = 3;
 let transparency = 1;
@@ -29,10 +29,11 @@ let redo_array = [];
 let reindex = -1;
 
 // Setting up the canvas sizes
+
 canvas.width = 1050;
 canvas.height = 620;
-canvasDraft.width = 1050;
-canvasDraft.height = 620;
+canvasDraft.width = canvas.width;
+canvasDraft.height = canvas.height;
 
 
 /***************************************************************************
@@ -40,10 +41,10 @@ canvasDraft.height = 620;
 ****************************************************************************/
 
 // this function adds the number value of the selected line width next to the line span.
-$(document).on('input change', '#pen-range', function() {
+$(document).on('input change', '#pen-range', function () {
     $('#range_num').html($(this).val());
 })
 
-$(document).on('input change', '#transparency-range', function() {
+$(document).on('input change', '#transparency-range', function () {
     $('#tran_num').html($(this).val());
 })
