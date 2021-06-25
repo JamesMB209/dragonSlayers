@@ -24,8 +24,14 @@ uploadFile.addEventListener('change', function(e) {
         img.onload = function() {
             canvas.width = img.width;
             canvas.height = img.height;
-            context.drawImage(img, 0, 0, img.width, img.height);
-            canvas.removeAttribute('data-caman-id'); //not sure why, but instructed to do
+            context.drawImage(img, 0, 0, canvas.width, canvas.height);
         }
     }, false);
+
+    restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
+    index += 1;
+    console.log("index:", index, "restorearr", restore_array)
+
+
+
 });

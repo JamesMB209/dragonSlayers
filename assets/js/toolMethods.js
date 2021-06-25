@@ -7,25 +7,27 @@ function clear_canvas() {
     index = -1;
     restore_array = [];
     redo_array = [];
-    // console.log("clear function is working")
-    // console.log("restore array", restore_array)
-    // console.log("redo array", redo_array)
-    // console.log("reindex", reindex)
-    // console.log("index", index)
-}
+
+    originimage = [];
+    flitercount = 0;
+    console.log("clear function is working")
+    console.log("restore array", restore_array)
+    console.log("redo array", redo_array)
+    console.log("reindex", reindex)
+    console.log("index", index)
 
 function undo_last() {
     if (index >= 0) {
-<<<<<<< HEAD
+
         console.log("before index", index)
         if (polygonactive) {
             polygonundo = true;
         } else {
             polygonundo = false;
         }
-=======
+
         // console.log("before index", index)
->>>>>>> JamesMB
+      
         redo_array.push(restore_array.pop());
         reindex += 1;
         index -= 1;
