@@ -12,3 +12,17 @@ for (i = 0; i < buttons.length; i++) {
     })
 }
 
+var flame = document.getElementById('flame');
+var logo = document.getElementById('logo');
+
+logo.addEventListener('mouseover',function(e){
+    flame.style.display = "inline-block";
+    flame.style.animation = "fadeIn";
+    flame.style.animationDuration = '1s';
+    console.log('fadein')
+})
+logo.addEventListener('mouseout',function(e){
+   
+    flame.style.display = "none";
+  
+})

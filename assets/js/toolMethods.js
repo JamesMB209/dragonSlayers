@@ -7,6 +7,7 @@ function clear_canvas() {
     index = -1;
     restore_array = [];
     redo_array = [];
+
     originimage = [];
     flitercount = 0;
     console.log("clear function is working")
@@ -14,16 +15,19 @@ function clear_canvas() {
     console.log("redo array", redo_array)
     console.log("reindex", reindex)
     console.log("index", index)
-}
 
 function undo_last() {
     if (index >= 0) {
+
         console.log("before index", index)
         if (polygonactive) {
             polygonundo = true;
         } else {
             polygonundo = false;
         }
+
+        // console.log("before index", index)
+      
         redo_array.push(restore_array.pop());
         reindex += 1;
         index -= 1;
@@ -32,7 +36,7 @@ function undo_last() {
         } else {
             context.putImageData(restore_array[index], 0, 0);
         };
-        console.log("checking", "Index:", index, "reindex:", reindex, "restore", restore_array, "redo", redo_array)
+        // console.log("checking", "Index:", index, "reindex:", reindex, "restore", restore_array, "redo", redo_array)
     }
 }
 

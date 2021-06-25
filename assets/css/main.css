@@ -2,17 +2,42 @@
 
 html {
     cursor: url('../images/silverlightswordsmall.png'), auto;
+
 }
 
+body {
+    background-image: url('../images/red.jpg');
+    background-size: cover;
+    background-position: center;
+}
 
 /* LOGO */
 
 #logo {
     width: 50%;
+    animation: fadeIn;
+    animation-duration: 2s;
+}
+#images{
+    position:relative;
+
+}
+#flame{
+    display: none;
+    width: 50%;
+    position: absolute;
+    top:48%;
+    left:60%;
 }
 
-
 /* TOOL BAR */
+#toolbar{
+    height: 100vh;
+}
+.my-2{
+    animation: fadeInLeft;
+    animation-duration: 6s;
+}
 
 button {
     margin: 3px;
@@ -32,25 +57,25 @@ button {
 }
 
 #clear {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 #circleFunction,
 #rectangleFunction,
 #straightLineFunction {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #polygonFunction,
 #curveFunction {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 #downloadFunction {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-#clear,
+label, input, #clear,
 #penFunction,
 #eraserFunction,
 #textFunction,
@@ -64,13 +89,6 @@ button {
     cursor: url('../images/silverlightswordsmall.png'), auto;
 }
 
-label {
-    cursor: url('../images/silverlightswordsmall.png'), auto;
-}
-
-input {
-    cursor: url('../images/silverlightswordsmall.png'), auto;
-}
 
 .icons {
     height: 16px;
@@ -84,18 +102,22 @@ input {
 
 input {
     width: 80%;
+    background-image:none;
+}
+
+#upload-file{
+    color: white;
+    cursor: url('../images/silverlightswordsmall.png'), auto;
 }
 
 #bars {
     padding-top: 15px;
     padding-bottom: 15px;
     border-style: solid;
-    border-color: black;
+    border-color: white;
     border-radius: 20px;
     color: white;
-    background-image: url('../images/firebackground.jpeg');
-    background-position: center;
-    background-size: cover;
+    
 }
 
 
@@ -103,24 +125,27 @@ input {
 
 #canvasContainer {
     position: relative;
+    margin-top: 10%;
+    margin-left: 13%;
+    margin-right: auto;
+   
 }
-
 #canvasDraft {
     position: absolute;
+    border: black 1px solid;
     background-color: transparent;
 }
 
-#canvas {
-    margin: 10% 10% 10% 10%;
-    border-radius: 50px;
-    border-style: solid;
-    border-color: red;
-    border-width: 10px;
-    background-color: cornsilk;
+#canvas{
+    background-color: white;
+
 }
 
-
-/* hahah what the fuck is this for? */
+#canvas, #canvasDraft {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 30px;
+}
 
 #dragon {
     display: none;
