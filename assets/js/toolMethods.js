@@ -7,6 +7,8 @@ function clear_canvas() {
     index = -1;
     restore_array = [];
     redo_array = [];
+    originimage = [];
+    flitercount = 0;
     console.log("clear function is working")
     console.log("restore array", restore_array)
     console.log("redo array", redo_array)
