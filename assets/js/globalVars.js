@@ -14,6 +14,8 @@ let dragging = false;
 let polygonactive = false;
 let polygonundo = false;
 let polygonredo = false;
+let flitercount = 0;
+let originimage = [];
 
 // Canvas tool settings/defaults
 let backgroundColour = "#ffffff";

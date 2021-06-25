@@ -100,18 +100,6 @@
             <button type="button" id="downloadFunction">
               <i class="fas fa-download"></i>
             </button>
-            <div class="container">
-              <div class="row mx-auto">
-                <div class="custom-file mb-3">
-                  <input
-                    type="file"
-                    class="custom-file-input"
-                    id="upload-file"
-                  />
-                  <!-- <label for="upload-file" class="custom-file-label"></label> -->
-                </div>
-              </div>
-            </div>
           </div>
 
           <!-- Variable setters -->
@@ -157,6 +145,30 @@
               computer.</canvas
             >
           </div>
+          <div id="undercanvas">
+            <div class="container">
+              <div class="row mx-auto">
+                <div class="custom-file mb-3">
+                 <button id='upload'> <label for="upload-file"><i class="fas fa-upload"></i></label>
+                  <input
+                    type="file"
+                    class="custom-file-input"
+                    id="upload-file"
+                    style="display: none"
+                  /></button>
+                  <!-- <label for="upload-file" class="custom-file-label"></label> -->
+                   
+                </div>
+              </div>
+            </div>
+            <!--Filters-->
+            <button type="button" class="fliter" id="grayscale">Grayscale</button>
+            <button type="button" class="fliter" id="blue">Blue</button>
+            <button type="button" class="fliter" id="green">Green</button>
+            <button type="button" class="fliter" id="red">Red</button>
+            <button type="button" class="fliter" id="brighter">Brighter</button>
+            <button type="button" class="fliter" id="darker">Darker</button>
+          </div>
         </div>
       </div>
     </div>
@@ -185,6 +197,7 @@
     <script src="./assets/js/textDrawing.js"></script>
     <script src="./assets/js/styling.js"></script>
     <script src="./assets/js/uploadFunction.js"></script>
+    <script src="./assets/js/filterFunction.js"></script>
     <script src="./assets/js/eraserFunction.js"></script>
     <script src="./assets/js/quadraticCurve.js"></script>
     <script src="./assets/js/fillBucket.js"></script>
