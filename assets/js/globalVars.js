@@ -29,16 +29,12 @@ let redo_array = [];
 let reindex = -1;
 
 // Setting up the canvas sizes
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-<<<<<<< HEAD
-canvasDraft.width = window.innerWidth;
-canvasDraft.height = window.innerHeight;
 
-=======
+canvas.width = 1050;
+canvas.height = 620;
 canvasDraft.width = canvas.width;
 canvasDraft.height = canvas.height;
->>>>>>> JamesMB
+
 
 /***************************************************************************
 // Functions to set up the interactive page decorations.
