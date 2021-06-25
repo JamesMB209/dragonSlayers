@@ -154,10 +154,12 @@ input {
     padding-top: 30px;
     padding-right: 20%;
 }
-#undercanvas button{
+.filter{
     width: 9%;
 }
-
+#upload{
+    width: 20%
+}
 #dragon {
     display: none;
 }

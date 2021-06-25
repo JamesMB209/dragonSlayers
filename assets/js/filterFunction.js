@@ -1,4 +1,4 @@
-$(".fliter").on("click", function() {
+$(".filter").on("click", function() {
     console.log("filter is started")
     var id = $(this).attr("id");
 
