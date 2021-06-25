@@ -85,7 +85,7 @@ label, input, #clear,
 #polygonFunction,
 #curveFunction,
 #iconFunction,
-#downloadFunction {
+#downloadFunction, #fillFunction {
     cursor: url('../images/silverlightswordsmall.png'), auto;
 }
 

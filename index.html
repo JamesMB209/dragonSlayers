@@ -7,9 +7,9 @@
 
     <title>DragonSlayers canvas project</title>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <script
       src="https://kit.fontawesome.com/c1667b7eee.js"
       crossorigin="anonymous"
@@ -25,15 +25,14 @@
 
   <body>
     <div class="container-fluid">
-
       <div class="row">
         <div class="col-2 p-2 m-0 text-center" id="toolbar">
           <!-- Control buttons -->
-          <div id='images'>
-          <img id="logo" src="./assets/images/dragon.png" alt="" />
-          <img id ='flame' src="./assets/images/flame.png" alt="">
-        </div>
-          <div class="my-2" >
+          <div id="images">
+            <img id="logo" src="./assets/images/dragon.png" alt="" />
+            <img id="flame" src="./assets/images/flame.png" alt="" />
+          </div>
+          <div class="my-2">
             <button
               onClick="undo_last()"
               type="button"
@@ -93,7 +92,7 @@
                 alt=""
               />
             </button>
- <button type="button" id="fillFunction">Fill Bucket</button>
+            <button type="button" id="fillFunction"><img src="./assets/images/fillbucket.png" class="icons" alt=""></button>
             <button type="button" id="iconFunction">
               <i class="fas fa-dragon"></i
               ><img id="dragon" src="./assets/images/dragon.png" alt="" />
@@ -110,7 +109,6 @@
                     id="upload-file"
                   />
                   <!-- <label for="upload-file" class="custom-file-label"></label> -->
-
                 </div>
               </div>
             </div>
@@ -163,9 +161,12 @@
       </div>
     </div>
 
-
     <!-- main methods -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
 
     <script src="./assets/js/globalVars.js"></script>
     <script src="./assets/js/mouseMethods.js"></script>
@@ -187,6 +188,5 @@
     <script src="./assets/js/eraserFunction.js"></script>
     <script src="./assets/js/quadraticCurve.js"></script>
     <script src="./assets/js/fillBucket.js"></script>
-</body>
+  </body>
 </html>
-
