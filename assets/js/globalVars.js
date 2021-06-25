@@ -16,8 +16,8 @@ let polygonundo = false;
 let polygonredo = false;
 
 // Canvas tool settings/defaults
-let backgroundColour = "white";
-let colorStroke = "black";
+let backgroundColour = "#ffffff";
+let colorStroke = "#000000";
 let colorFill = backgroundColour;
 let lineWidth = 3;
 let transparency = 1;
@@ -31,19 +31,24 @@ let reindex = -1;
 // Setting up the canvas sizes
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+<<<<<<< HEAD
 canvasDraft.width = window.innerWidth;
 canvasDraft.height = window.innerHeight;
 
+=======
+canvasDraft.width = canvas.width;
+canvasDraft.height = canvas.height;
+>>>>>>> JamesMB
 
 /***************************************************************************
 // Functions to set up the interactive page decorations.
 ****************************************************************************/
 
 // this function adds the number value of the selected line width next to the line span.
-$(document).on('input change', '#pen-range', function() {
+$(document).on('input change', '#pen-range', function () {
     $('#range_num').html($(this).val());
 })
 
-$(document).on('input change', '#transparency-range', function() {
+$(document).on('input change', '#transparency-range', function () {
     $('#tran_num').html($(this).val());
 })

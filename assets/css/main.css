@@ -107,7 +107,12 @@ input {
 
 #canvasDraft {
     position: absolute;
+    border: black 1px solid;
     background-color: transparent;
+}
+#canvas {
+    position: absolute;
+    border: black 1px solid;
 }
 
 #canvas {
@@ -119,8 +124,6 @@ input {
     background-color: cornsilk;
 }
 
-
-/* hahah what the fuck is this for? */
 
 #dragon {
     display: none;

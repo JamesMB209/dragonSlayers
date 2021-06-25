@@ -34,6 +34,8 @@
                     <button type="button" id='straightLineFunction'><img src="./assets/images/straightLine.png" class='icons' alt=""></button>
                     <button type="button" id='polygonFunction'><img src="./assets/images/polygon.png" class='icons' alt=""></button>
                     <button type="button" id='curveFunction'><img src="./assets/images/quadraticCurve.jpg" class='icons' alt=""></button>
+                    <button type="button" id="textFunction">Text</button>
+                    <button type="button" id="fillFunction">Fill Bucket</button>
 
                     <button type="button" id='iconFunction'><i class="fas fa-dragon"></i><img id="dragon" src="./assets/images/dragon.png" alt=""></button>
                     <button type="button" id="downloadFunction"><i class="fas fa-download"></i></button>
@@ -61,18 +63,22 @@
             </div>
             <div class="col-10 p-0 m-0">
                 <div id="canvasContainer">
-                    <canvas id='canvasDraft'></canvas>
+                    <!-- I've just had to swap these after adding position absoloute to both. Not sure why -->
                     <canvas id="canvas">Your browser doesn't support canvas get a better computer.</canvas>
+                    <canvas id='canvasDraft'></canvas>
                 </div>
             </div>
 
         </div>
     </div>
 
+    <!-- main methods -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="./assets/js/globalVars.js"></script>
     <script src="./assets/js/mouseMethods.js"></script>
     <script src="./assets/js/toolMethods.js"></script>
+
+    <!-- tooltips -->
     <script src="./assets/js/circleDrawing.js"></script>
     <script src="./assets/js/rectangleDrawing.js"></script>
     <script src="./assets/js/penDrawing.js"></script>
@@ -85,5 +91,7 @@
     <script src="./assets/js/textDrawing.js"></script>
     <script src="./assets/js/stylingButtons.js"></script>
     <script src="./assets/js/uploadFunction.js"></script>
-
+    <script src="./assets/js/eraserFunction.js"></script>
+    <script src="./assets/js/quadraticCurve.js"></script>
+    <script src="./assets/js/fillBucket.js"></script>
 </body>
