@@ -5,6 +5,7 @@ class FillFunction extends MouseEvents {
         this.contextDraft = contextDraft;
     }
 
+
     matchStartColor(pixelPos) {
         let r = this.imageData.data[pixelPos];
         let g = this.imageData.data[pixelPos + 1];
@@ -14,88 +15,100 @@ class FillFunction extends MouseEvents {
     }
 
     colorPixel(pixelPos) {
-        this.imageData.data[pixelPos] = 26;
-        this.imageData.data[pixelPos + 1] = 6;
-        this.imageData.data[pixelPos + 2] = 45;
+        this.imageData.data[pixelPos] = this.bucketFillColor.r;
+        this.imageData.data[pixelPos + 1] = this.bucketFillColor.g;
+        this.imageData.data[pixelPos + 2] = this.bucketFillColor.b;
         this.imageData.data[pixelPos + 3] = 255;
     }
 
-    onMouseDown([xPos, yPos]) {
-        //Record the starting position of the first click.
-        this.xStart = xPos;
-        this.yStart = yPos;
-        
+    hexToRgb(hex) {
+    // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF") shameless stolen.
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
 
-        let canvasWidth = canvas.width;
-        let canvasHeight = canvas.height;
-        this.imageData = this.context.getImageData(0, 0, canvas.width, canvas.height);
-        
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+}
 
 
-        let pixelStack = [[this.xStart, this.yStart]];
+onMouseDown([xPos, yPos]) {
+    this.xStart = xPos;
+    this.yStart = yPos;
+    let startingColor = this.context.getImageData(xPos, yPos, 1, 1);
 
-        while (pixelStack.length) {
-            let newPos, x, y, pixelPos, reachLeft, reachRight;
+    this.startR = startingColor.data[0];
+    this.startG = startingColor.data[1];
+    this.startB = startingColor.data[2];
 
-            newPos = pixelStack.pop();
-            x = newPos[0];
-            y = newPos[1];
+    this.bucketFillColor = this.hexToRgb(colorFill);
 
-            pixelPos = (y * canvasWidth + x) * 4;
-            console.log("start pos", x, y);
-            console.log("first absolute pixPos", pixelPos);
-            console.log("the result of matchColour", this.matchStartColor(pixelPos))
-            while (y-- >= 0 && this.matchStartColor(pixelPos)) {
-                pixelPos -= canvasWidth * 4;
-            }
+    let canvasWidth = canvas.width;
+    let canvasHeight = canvas.height;
+    this.imageData = this.context.getImageData(0, 0, canvas.width, canvas.height);
 
-            pixelPos += canvasWidth * 4;
-            ++y;
+    let pixelStack = [[this.xStart, this.yStart]];
 
-            console.log(pixelPos);
+    while (pixelStack.length) {
+        let newPos, x, y, pixelPos, reachLeft, reachRight;
 
-            reachLeft = false;
-            reachRight = false;
-            while (y++ < canvasHeight - 1 && this.matchStartColor(pixelPos)) {
-                this.colorPixel(pixelPos);
+        newPos = pixelStack.pop();
+        x = newPos[0];
+        y = newPos[1];
 
-                if (x > 0) {
-                    if (this.matchStartColor(pixelPos - 4)) {
-                        if (!reachLeft) {
-                            pixelStack.push([x - 1, y]);
-                            reachLeft = true;
-                        }
-                    }
-                    else if (reachLeft) {
-                        reachLeft = false;
+        pixelPos = (y * canvasWidth + x) * 4;
+
+        while (y-- >= 0 && this.matchStartColor(pixelPos)) {
+            pixelPos -= canvasWidth * 4;
+        }
+
+        pixelPos += canvasWidth * 4;
+        ++y;
+
+        reachLeft = false;
+        reachRight = false;
+        while (y++ < canvasHeight - 1 && this.matchStartColor(pixelPos)) {
+            this.colorPixel(pixelPos);
+
+            if (x > 0) {
+                if (this.matchStartColor(pixelPos - 4)) {
+                    if (!reachLeft) {
+                        pixelStack.push([x - 1, y]);
+                        reachLeft = true;
                     }
                 }
-
-                //There is a problem here.
-                // http://www.williammalone.com/articles/html5-canvas-javascript-paint-bucket-tool/ this is the guide im following.
-                // if (x < canvasWidth - 1) {
-                //     if (this.matchStartColor(pixelPos + 4)) {
-                //         if (!reachRight) {
-                //             pixelStack.push([x + 1, y]);
-                //             reachRight = true;
-                //         }
-                //     }
-                //     else if (reachRight) {
-                //         reachRight = false;
-                //     }
-                // }
-                // pixelPos += canvasWidth * 4;
+                else if (reachLeft) {
+                    reachLeft = false;
+                }
             }
-        }
-        console.log(this.imageData)
-        this.context.putImageData(this.imageData, 0, 0);
-    }
 
-    onMouseUp([xPos, yPos]) {
-        //code for Undo/Redo
-        restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
-        index += 1;
+            if (x < canvasWidth - 1) {
+                if (this.matchStartColor(pixelPos + 4)) {
+                    if (!reachRight) {
+                        pixelStack.push([x + 1, y]);
+                        reachRight = true;
+                    }
+                }
+                else if (reachRight) {
+                    reachRight = false;
+                }
+            }
+            pixelPos += canvasWidth * 4;
+        }
     }
+    this.context.putImageData(this.imageData, 0, 0);
+}
+
+onMouseUp([xPos, yPos]) {
+    //code for Undo/Redo
+    restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
+    index += 1;
+}
 }
 
 /***************************************************************************

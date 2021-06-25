@@ -13,8 +13,8 @@ let currentFunction;
 let dragging = false;
 
 // Canvas tool settings/defaults
-let backgroundColour = "white";
-let colorStroke = "black";
+let backgroundColour = "#ffffff";
+let colorStroke = "#000000";
 let colorFill = backgroundColour;
 let lineWidth = 3;
 let transparency = 1;
@@ -26,17 +26,10 @@ let redo_array = [];
 let reindex = -1;
 
 // Setting up the canvas sizes
-// canvas.width = window.innerWidth / 12 * 10;
-// canvas.height = window.innerHeight;
-// canvasDraft.width = canvas.width;
-// canvasDraft.height = canvas.height;
-
-// Fill bucket testing
-canvas.width = 10;
-canvas.height = 10;
+canvas.width = window.innerWidth / 12 * 10;
+canvas.height = window.innerHeight;
 canvasDraft.width = canvas.width;
 canvasDraft.height = canvas.height;
-
 
 /***************************************************************************
 // Functions to set up the interactive page decorations.
