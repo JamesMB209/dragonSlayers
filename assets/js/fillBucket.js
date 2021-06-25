@@ -10,45 +10,26 @@ class FillFunction extends MouseEvents {
         let g = this.imageData.data[pixelPos + 1];
         let b = this.imageData.data[pixelPos + 2];
 
-        // console.log(r);
-        // console.log(g);
-        // console.log(b);
-
         return (r == this.startR && g == this.startG && b == this.startB);
     }
 
-    startColor() {
-        this.selectedPixel = this.context.getImageData(this.xStart, this.yStart, 1, 1);
-        // console.log(this.selectedPixel);
-
-        this.startR = this.selectedPixel.data[0];
-        this.startG = this.selectedPixel.data[1];
-        this.startB = this.selectedPixel.data[2];
-
-        // console.log(this.startR);
-        // console.log(this.startG);
-        // console.log(this.startB);
-    }
-
     colorPixel(pixelPos) {
-        this.selectedPixel.data[pixelPos] = 25;
-        this.selectedPixel.data[pixelPos + 1] = 25;
-        this.selectedPixel.data[pixelPos + 2] = 25;
-        this.selectedPixel.data[pixelPos + 3] = 255;
+        this.imageData.data[pixelPos] = 26;
+        this.imageData.data[pixelPos + 1] = 6;
+        this.imageData.data[pixelPos + 2] = 45;
+        this.imageData.data[pixelPos + 3] = 255;
     }
-
-    changeColour() { }
 
     onMouseDown([xPos, yPos]) {
         //Record the starting position of the first click.
         this.xStart = xPos;
         this.yStart = yPos;
-        this.startColor();
+        
 
-        this.imageData = this.context.getImageData(0, 0, canvas.width, canvas.height);
         let canvasWidth = canvas.width;
         let canvasHeight = canvas.height;
-
+        this.imageData = this.context.getImageData(0, 0, canvas.width, canvas.height);
+        
 
 
         let pixelStack = [[this.xStart, this.yStart]];
@@ -61,6 +42,9 @@ class FillFunction extends MouseEvents {
             y = newPos[1];
 
             pixelPos = (y * canvasWidth + x) * 4;
+            console.log("start pos", x, y);
+            console.log("first absolute pixPos", pixelPos);
+            console.log("the result of matchColour", this.matchStartColor(pixelPos))
             while (y-- >= 0 && this.matchStartColor(pixelPos)) {
                 pixelPos -= canvasWidth * 4;
             }
@@ -68,10 +52,10 @@ class FillFunction extends MouseEvents {
             pixelPos += canvasWidth * 4;
             ++y;
 
+            console.log(pixelPos);
+
             reachLeft = false;
             reachRight = false;
-            //There is a problem here.
-            // http://www.williammalone.com/articles/html5-canvas-javascript-paint-bucket-tool/ this is the guide im following.
             while (y++ < canvasHeight - 1 && this.matchStartColor(pixelPos)) {
                 this.colorPixel(pixelPos);
 
@@ -87,21 +71,24 @@ class FillFunction extends MouseEvents {
                     }
                 }
 
-                if (x < canvasWidth - 1) {
-                    if (this.matchStartColor(pixelPos + 4)) {
-                        if (!reachRight) {
-                            pixelStack.push([x + 1, y]);
-                            reachRight = true;
-                        }
-                    }
-                    else if (reachRight) {
-                        reachRight = false;
-                    }
-                }
-                pixelPos += canvasWidth * 4;
+                //There is a problem here.
+                // http://www.williammalone.com/articles/html5-canvas-javascript-paint-bucket-tool/ this is the guide im following.
+                // if (x < canvasWidth - 1) {
+                //     if (this.matchStartColor(pixelPos + 4)) {
+                //         if (!reachRight) {
+                //             pixelStack.push([x + 1, y]);
+                //             reachRight = true;
+                //         }
+                //     }
+                //     else if (reachRight) {
+                //         reachRight = false;
+                //     }
+                // }
+                // pixelPos += canvasWidth * 4;
             }
         }
-        this.context.putImageData(this.selectedPixel, 0, 0);
+        console.log(this.imageData)
+        this.context.putImageData(this.imageData, 0, 0);
     }
 
     onMouseUp([xPos, yPos]) {
