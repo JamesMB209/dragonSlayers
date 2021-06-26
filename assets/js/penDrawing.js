@@ -57,10 +57,11 @@ class PenFunction extends MouseEvents {
 Append the event listener for this function.
 ****************************************************************************/
 
-$("#penFunction").click(function () {
+$("#penFunction").click(function() {
     console.log("PenFunction was selected")
-    // console.log("check", context)
+        // console.log("check", context)
     currentFunction = new PenFunction(context, contextDraft);
+    polygonactive = false;
 });
 
 /***************************************************************************

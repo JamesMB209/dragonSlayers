@@ -11,14 +11,14 @@ function mousePos(e) {
     // console.log(`x: ${xPos} y: ${yPos}`)
 }
 
-$('#canvasDraft').mousedown(function (e) {
+$('#canvasDraft').mousedown(function(e) {
     dragging = true;
     // console.log("down");
     mousePos(e);
     currentFunction.onMouseDown([xPos, yPos]);
 });
 
-$('#canvasDraft').mousemove(function (e) {
+$('#canvasDraft').mousemove(function(e) {
     mousePos(e);
     if (dragging == true) {
         currentFunction.onMouseDrag([xPos, yPos]);
@@ -27,14 +27,14 @@ $('#canvasDraft').mousemove(function (e) {
     }
 })
 
-$('#canvasDraft').mouseup(function (e) {
+$('#canvasDraft').mouseup(function(e) {
     dragging = false;
     // console.log("up")
     mousePos(e);
     currentFunction.onMouseUp([xPos, yPos]);
 });
 
-$('#canvasDraft').mouseleave(function (e) {
+$('#canvasDraft').mouseleave(function(e) {
     dragging = false;
     // console.log("leave");
     mousePos(e);
@@ -42,16 +42,26 @@ $('#canvasDraft').mouseleave(function (e) {
 });
 
 $('html').keyup(
-    function (e) {
+    function(e) {
         currentFunction.onKeyup(e.key)
     });
 
 class MouseEvents {
-    constructor() { }
-    onMouseDown() { }
-    onMouseDrag() { }
-    onMouseLeave() { }
-    onMouseUp() { }
-    onMouseMove() { }
-    onKeyup() { }
+    constructor() {}
+    onMouseDown() {}
+    onMouseDrag() {}
+    onMouseLeave() {}
+    onMouseUp() {}
+    onMouseMove() {}
+    onKeyup() {}
 }
+
+$('body').click(function() {
+    if (uploaded == true) {
+        originimage.push(context.getImageData(0, 0, canvas.width, canvas.height));
+        restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
+        index += 1;
+        uploaded = false;
+        console.log("body click")
+    }
+})

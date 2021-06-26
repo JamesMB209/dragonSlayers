@@ -46,7 +46,7 @@ class circleFunction extends MouseEvents {
         console.log('stick')
         dragging = false;
         restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
-        index ++;
+        index++;
     }
     drawStart([xPos, yPos]) {
         console.log('drawstart');
@@ -74,4 +74,5 @@ $("#circleFunction").click(function() {
     console.log("circleFunction is working")
     console.log("check", context)
     currentFunction = new circleFunction(context, contextDraft);
+    polygonactive = false;
 });

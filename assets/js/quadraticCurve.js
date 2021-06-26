@@ -83,8 +83,9 @@ class curveFunction extends MouseEvents {
 
 }
 
-$("#curveFunction").click(function () {
+$("#curveFunction").click(function() {
     console.log("curveFunction is working")
     console.log("check", context)
     currentFunction = new curveFunction(context, contextDraft);
+    polygonactive = false;
 });

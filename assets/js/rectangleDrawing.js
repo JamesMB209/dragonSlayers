@@ -51,4 +51,5 @@ Append the event listener for this function.
 $("#rectangleFunction").click(function() {
     currentFunction = new RectangleFunction(context, contextDraft);
     console.log("The square tool was selected.")
+    polygonactive = false;
 });
