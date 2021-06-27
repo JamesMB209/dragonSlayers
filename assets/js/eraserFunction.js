@@ -39,21 +39,22 @@ class eraserFunction extends MouseEvents {
 
     draw([xPos, yPos]) {
         console.log("draw is running")
-        // this.context.beginPath();
+            // this.context.beginPath();
         this.context.lineTo(xPos, yPos);
         console.log("lineTo is okay")
-        // this.context.moveTo(xPos, yPos);
-        // console.log("moveto is okay")
-        // this.context.closePath();
-        // console.log("closepath okay")
+            // this.context.moveTo(xPos, yPos);
+            // console.log("moveto is okay")
+            // this.context.closePath();
+            // console.log("closepath okay")
         this.context.stroke();
         console.log("draw finish")
     }
 
 }
 
-$("#eraserFunction").click(function () {
+$("#eraserFunction").click(function() {
     console.log("eraserFunction is working")
     console.log("check", context)
     currentFunction = new eraserFunction(context, contextDraft);
+    polygonactive = false;
 });

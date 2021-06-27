@@ -4,6 +4,9 @@ const uploadFile = document.getElementById('upload-file');
 
 //Upload File
 uploadFile.addEventListener('change', function(e) {
+    console.log("upload is running")
+    polygonactive = false;
+
     //Get File
     const file = document.getElementById('upload-file').files[0];
     //Init FileReader
@@ -13,6 +16,8 @@ uploadFile.addEventListener('change', function(e) {
         fileName = file.name;
         // Read data as URL (Ref: https://developer.mozilla.org/en-US/docs/Web/API/FileReader)
         reader.readAsDataURL(file);
+
+        console.log("file", file)
     }
     //Add image to canvas
     reader.addEventListener('load', function() {
@@ -22,16 +27,11 @@ uploadFile.addEventListener('change', function(e) {
         img.src = reader.result;
         //On image load, add to canvas
         img.onload = function() {
-            canvas.width = img.width;
-            canvas.height = img.height;
-            context.drawImage(img, 0, 0, canvas.width, canvas.height);
+            context.drawImage(img, 0, 0, img.width, img.height,
+                0, 0, canvas.width, canvas.height);
         }
     }, false);
 
-    restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
-    index += 1;
-    console.log("index:", index, "restorearr", restore_array)
-
-
+    uploaded = true;
 
 });

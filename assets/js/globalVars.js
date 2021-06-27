@@ -11,11 +11,11 @@ let contextDraft = canvasDraft.getContext("2d");
 // Global conditions
 let currentFunction;
 let dragging = false;
-let polygonactive = false;
-let polygonundo = false;
-let polygonredo = false;
-let flitercount = 0;
-let originimage = [];
+let uploaded = false;
+let originimage = ["0"];
+let filterselect = false;
+
+
 
 // Canvas tool settings/defaults
 let backgroundColour = "#ffffff";
@@ -29,6 +29,18 @@ let restore_array = [];
 let index = -1;
 let redo_array = [];
 let reindex = -1;
+//for polygon only
+let polygonactive = false;
+let logX = [];
+let logY = [];
+let line = -1;
+let linelog = [];
+let linelogundo = [];
+let undoX = [];
+let undoY = [];
+let polydone = true;
+
+
 
 // Setting up the canvas sizes
 
@@ -43,10 +55,10 @@ canvasDraft.height = canvas.height;
 ****************************************************************************/
 
 // this function adds the number value of the selected line width next to the line span.
-$(document).on('input change', '#pen-range', function () {
+$(document).on('input change', '#pen-range', function() {
     $('#range_num').html($(this).val());
 })
 
-$(document).on('input change', '#transparency-range', function () {
+$(document).on('input change', '#transparency-range', function() {
     $('#tran_num').html($(this).val());
 })

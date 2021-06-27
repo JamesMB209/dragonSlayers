@@ -34,8 +34,7 @@ class TextFunction extends MouseEvents {
                 this.keyPressCount++;
             default:
                 console.log(pressedKey)
-                if (pressedKey == "Backspace") { this.inputString = this.inputString.slice(0, -1) }
-                else { this.inputString += pressedKey; }
+                if (pressedKey == "Backspace") { this.inputString = this.inputString.slice(0, -1) } else { this.inputString += pressedKey; }
                 this.drawInputBox();
                 this.keyPressCount++;
         }
@@ -83,7 +82,8 @@ class TextFunction extends MouseEvents {
 /***************************************************************************
 Append the event listener for this function.
 ****************************************************************************/
-$("#textFunction").click(function () {
+$("#textFunction").click(function() {
     currentFunction = new TextFunction(context, contextDraft);
     console.log("The text tool was selected.")
+    polygonactive = false;
 });

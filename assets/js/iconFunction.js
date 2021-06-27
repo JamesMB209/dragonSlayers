@@ -3,7 +3,7 @@ class iconFunction extends MouseEvents {
         super();
         this.context = context;
         this.contextDraft = contextDraft;
-        this.image = document.getElementById('dragon')   
+        this.image = document.getElementById('dragon')
     }
 
     onMouseDown([xPos, yPos]) {
@@ -15,10 +15,10 @@ class iconFunction extends MouseEvents {
         this.context.lineWidth = lineWidth;
         this.contextDraft.lineWidth = lineWidth;
         //this.contextDraft.beginPath();
-       
+
         //this.contextDraft.moveTo(xPos, yPos);
-     
-        
+
+
         this.context.drawImage(this.image, xPos, yPos, 100, 100);
         console.log('stick')
     }
@@ -27,7 +27,7 @@ class iconFunction extends MouseEvents {
         console.log("onMouseMove is running")
         this.draw([xPos, yPos]);
         console.log('draw')
-       
+
     }
 
     onMouseUp([xPos, yPos]) {
@@ -35,14 +35,14 @@ class iconFunction extends MouseEvents {
         this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
         dragging = false;
         restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
-        index ++;
+        index++;
     }
-   
+
     draw([xPos, yPos]) {
         console.log("draw is running")
         this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
         this.contextDraft.drawImage(this.image, xPos, yPos, 100, 100);
-        
+
 
     }
 
@@ -52,4 +52,5 @@ $("#iconFunction").click(function() {
     console.log("iconFunction is working")
     console.log("check", context)
     currentFunction = new iconFunction(context, contextDraft);
+    polygonactive = false;
 });

@@ -49,4 +49,5 @@ class StraightLineFunction extends MouseEvents {
 $("#straightLineFunction").click(function() {
     console.log("Straight Line is working")
     currentFunction = new StraightLineFunction(context, contextDraft);
+    polygonactive = false;
 });
