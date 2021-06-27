@@ -24,7 +24,7 @@ class FillFunction extends MouseEvents {
     hexToRgb(hex) {
         // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF") shamelessy stolen.
         var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-        hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        hex = hex.replace(shorthandRegex, function (m, r, g, b) {
             return r + r + g + g + b + b;
         });
 
@@ -40,81 +40,78 @@ class FillFunction extends MouseEvents {
     onMouseDown([xPos, yPos]) {
         this.xStart = xPos;
         this.yStart = yPos;
+
+        // check the starting color on the location of the click 
         let startingColor = this.context.getImageData(xPos, yPos, 1, 1);
-        
         this.startR = startingColor.data[0];
         this.startG = startingColor.data[1];
         this.startB = startingColor.data[2];
-        
+
         //set the colour of the fill
-        
         this.bucketFillColor = this.hexToRgb(colorFill);
-        
-        console.log("test");
-        console.log(colorFill);
-        console.log(this.startingColor);
-        console.log(this.bucketFillColor);
-        if (this.startingColor == this.bucketFillColor) {
-            console.log("true");
-        } else {
-            console.log("false");
-        }
 
+        //only allow the code the run if the chosen colour is differnt.
+        //otherwise it will paint over itself in the while loop.
+        if (startingColor.data[0] == this.bucketFillColor.r &&
+            startingColor.data[1] == this.bucketFillColor.g &&
+            startingColor.data[2] == this.bucketFillColor.b) {
+            } else {
 
-        let canvasWidth = canvas.width;
-        let canvasHeight = canvas.height;
-        this.imageData = this.context.getImageData(0, 0, canvas.width, canvas.height);
+            let canvasWidth = canvas.width;
+            let canvasHeight = canvas.height;
+            this.imageData = this.context.getImageData(0, 0, canvas.width, canvas.height);
 
-        let pixelStack = [
-            [this.xStart, this.yStart]
-        ];
+            let pixelStack = [
+                [this.xStart, this.yStart]
+            ];
 
-        while (pixelStack.length) {
-            let newPos, x, y, pixelPos, reachLeft, reachRight;
+            while (pixelStack.length) {
+                let newPos, x, y, pixelPos, reachLeft, reachRight;
 
-            newPos = pixelStack.pop();
-            x = newPos[0];
-            y = newPos[1];
+                newPos = pixelStack.pop();
+                x = newPos[0];
+                y = newPos[1];
 
-            pixelPos = (y * canvasWidth + x) * 4;
+                pixelPos = (y * canvasWidth + x) * 4;
 
-            while (y-- >= 0 && this.matchStartColor(pixelPos)) {
-                pixelPos -= canvasWidth * 4;
-            }
-
-            pixelPos += canvasWidth * 4;
-            ++y;
-
-            reachLeft = false;
-            reachRight = false;
-            while (y++ < canvasHeight - 1 && this.matchStartColor(pixelPos)) {
-                this.colorPixel(pixelPos);
-
-                if (x > 0) {
-                    if (this.matchStartColor(pixelPos - 4)) {
-                        if (!reachLeft) {
-                            pixelStack.push([x - 1, y]);
-                            reachLeft = true;
-                        }
-                    } else if (reachLeft) {
-                        reachLeft = false;
-                    }
+                while (y-- >= 0 && this.matchStartColor(pixelPos)) {
+                    pixelPos -= canvasWidth * 4;
                 }
 
-                if (x < canvasWidth - 1) {
-                    if (this.matchStartColor(pixelPos + 4)) {
-                        if (!reachRight) {
-                            pixelStack.push([x + 1, y]);
-                            reachRight = true;
-                        }
-                    } else if (reachRight) {
-                        reachRight = false;
-                    }
-                }
                 pixelPos += canvasWidth * 4;
+                ++y;
+
+                reachLeft = false;
+                reachRight = false;
+                while (y++ < canvasHeight - 1 && this.matchStartColor(pixelPos)) {
+                    this.colorPixel(pixelPos);
+
+                    if (x > 0) {
+                        if (this.matchStartColor(pixelPos - 4)) {
+                            if (!reachLeft) {
+                                pixelStack.push([x - 1, y]);
+                                reachLeft = true;
+                            }
+                        } else if (reachLeft) {
+                            reachLeft = false;
+                        }
+                    }
+
+                    if (x < canvasWidth - 1) {
+                        if (this.matchStartColor(pixelPos + 4)) {
+                            if (!reachRight) {
+                                pixelStack.push([x + 1, y]);
+                                reachRight = true;
+                            }
+                        } else if (reachRight) {
+                            reachRight = false;
+                        }
+                    }
+                    pixelPos += canvasWidth * 4;
+                }
             }
+            this.context.putImageData(this.imageData, 0, 0);
         }
-        this.context.putImageData(this.imageData, 0, 0);
     }
 
     onMouseUp([xPos, yPos]) {
@@ -127,7 +124,7 @@ class FillFunction extends MouseEvents {
 /***************************************************************************
 Append the event listener for this function.
 ****************************************************************************/
-$("#fillFunction").click(function() {
+$("#fillFunction").click(function () {
     currentFunction = new FillFunction(context, contextDraft);
     console.log("The fillbucket tool was selected.")
     polygonactive = false;
