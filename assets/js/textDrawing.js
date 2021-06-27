@@ -77,12 +77,16 @@ class TextFunction extends MouseEvents {
         this.contextDraft.fillStyle = colorStroke;
         this.contextDraft.fillText(`${this.inputString}`, this.xStart, this.yStart + this.offSet);
     }
+
+    onMouseLeave() {
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    }
 }
 
 /***************************************************************************
 Append the event listener for this function.
 ****************************************************************************/
-$("#textFunction").click(function() {
+$("#textFunction").click(function () {
     currentFunction = new TextFunction(context, contextDraft);
     console.log("The text tool was selected.")
     polygonactive = false;

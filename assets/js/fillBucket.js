@@ -22,7 +22,7 @@ class FillFunction extends MouseEvents {
     }
 
     hexToRgb(hex) {
-        // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF") shameless stolen.
+        // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF") shamelessy stolen.
         var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
         hex = hex.replace(shorthandRegex, function(m, r, g, b) {
             return r + r + g + g + b + b;
@@ -41,12 +41,25 @@ class FillFunction extends MouseEvents {
         this.xStart = xPos;
         this.yStart = yPos;
         let startingColor = this.context.getImageData(xPos, yPos, 1, 1);
-
+        
         this.startR = startingColor.data[0];
         this.startG = startingColor.data[1];
         this.startB = startingColor.data[2];
-
+        
+        //set the colour of the fill
+        
         this.bucketFillColor = this.hexToRgb(colorFill);
+        
+        console.log("test");
+        console.log(colorFill);
+        console.log(this.startingColor);
+        console.log(this.bucketFillColor);
+        if (this.startingColor == this.bucketFillColor) {
+            console.log("true");
+        } else {
+            console.log("false");
+        }
+
 
         let canvasWidth = canvas.width;
         let canvasHeight = canvas.height;
