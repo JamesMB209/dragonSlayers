@@ -10,15 +10,16 @@ class FillFunction extends MouseEvents {
         let r = this.imageData.data[pixelPos];
         let g = this.imageData.data[pixelPos + 1];
         let b = this.imageData.data[pixelPos + 2];
+        let a = this.imageData.data[pixelPos + 3];
 
-        return (r == this.startR && g == this.startG && b == this.startB);
+        return (r == this.startR && g == this.startG && b == this.startB && a == this.startA);
     }
 
     colorPixel(pixelPos) {
         this.imageData.data[pixelPos] = this.bucketFillColor.r;
         this.imageData.data[pixelPos + 1] = this.bucketFillColor.g;
         this.imageData.data[pixelPos + 2] = this.bucketFillColor.b;
-        this.imageData.data[pixelPos + 3] = 255;
+        this.imageData.data[pixelPos + 3] = parseFloat(transparency)*255;
     }
 
     hexToRgb(hex) {
@@ -32,7 +33,8 @@ class FillFunction extends MouseEvents {
         return result ? {
             r: parseInt(result[1], 16),
             g: parseInt(result[2], 16),
-            b: parseInt(result[3], 16)
+            b: parseInt(result[3], 16),
+            a: parseFloat(transparency)*255
         } : null;
     }
 
@@ -46,6 +48,7 @@ class FillFunction extends MouseEvents {
         this.startR = startingColor.data[0];
         this.startG = startingColor.data[1];
         this.startB = startingColor.data[2];
+        this.startA = startingColor.data[3];
 
         //set the colour of the fill
         this.bucketFillColor = this.hexToRgb(colorFill);
@@ -54,9 +57,9 @@ class FillFunction extends MouseEvents {
         //otherwise it will paint over itself in the while loop.
         if (startingColor.data[0] == this.bucketFillColor.r &&
             startingColor.data[1] == this.bucketFillColor.g &&
-            startingColor.data[2] == this.bucketFillColor.b) {
-            } else {
-
+            startingColor.data[2] == this.bucketFillColor.b &&
+            startingColor.data[3] == this.bucketFillColor.a) {
+        } else {
             let canvasWidth = canvas.width;
             let canvasHeight = canvas.height;
             this.imageData = this.context.getImageData(0, 0, canvas.width, canvas.height);

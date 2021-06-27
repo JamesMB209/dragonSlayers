@@ -62,3 +62,5 @@ $(document).on('input change', '#pen-range', function() {
 $(document).on('input change', '#transparency-range', function() {
     $('#tran_num').html($(this).val());
 })
+
+context.clearRect(0, 0, canvas.width, canvas.height);

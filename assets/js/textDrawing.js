@@ -31,13 +31,11 @@ class TextFunction extends MouseEvents {
             case 0:
                 this.inputString = "";
                 this.drawInputBox();
-                this.keyPressCount++;
             default:
-                console.log(pressedKey)
                 if (pressedKey == "Backspace") { this.inputString = this.inputString.slice(0, -1) } else { this.inputString += pressedKey; }
                 this.drawInputBox();
-                this.keyPressCount++;
         }
+        this.keyPressCount++;
     }
 
     onMouseUp([xPos, yPos]) {
