@@ -14,6 +14,8 @@ class iconFunction extends MouseEvents {
         this.contextDraft.fillStyle = colorFill;
         this.context.lineWidth = lineWidth;
         this.contextDraft.lineWidth = lineWidth;
+        this.context.globalAlpha = 1;
+        this.contextDraft.globalAlpha = 1;
         //this.contextDraft.beginPath();
 
         //this.contextDraft.moveTo(xPos, yPos);
@@ -44,6 +46,10 @@ class iconFunction extends MouseEvents {
         this.contextDraft.drawImage(this.image, xPos, yPos, 100, 100);
 
 
+    }
+
+    onMouseLeave() {
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     }
 
 }
