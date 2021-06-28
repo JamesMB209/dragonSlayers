@@ -19,7 +19,7 @@ class FillFunction extends MouseEvents {
         this.imageData.data[pixelPos] = this.bucketFillColor.r;
         this.imageData.data[pixelPos + 1] = this.bucketFillColor.g;
         this.imageData.data[pixelPos + 2] = this.bucketFillColor.b;
-        this.imageData.data[pixelPos + 3] = parseFloat(transparency)*255;
+        this.imageData.data[pixelPos + 3] = parseFloat(transparency) * 255;
     }
 
     hexToRgb(hex) {
@@ -34,7 +34,7 @@ class FillFunction extends MouseEvents {
             r: parseInt(result[1], 16),
             g: parseInt(result[2], 16),
             b: parseInt(result[3], 16),
-            a: parseFloat(transparency)*255
+            a: parseFloat(transparency) * 255
         } : null;
     }
 
@@ -59,62 +59,64 @@ class FillFunction extends MouseEvents {
             startingColor.data[1] == this.bucketFillColor.g &&
             startingColor.data[2] == this.bucketFillColor.b &&
             startingColor.data[3] == this.bucketFillColor.a) {
-        } else {
-            let canvasWidth = canvas.width;
-            let canvasHeight = canvas.height;
-            this.imageData = this.context.getImageData(0, 0, canvas.width, canvas.height);
-
-            let pixelStack = [
-                [this.xStart, this.yStart]
-            ];
-
-            while (pixelStack.length) {
-                let newPos, x, y, pixelPos, reachLeft, reachRight;
-
-                newPos = pixelStack.pop();
-                x = newPos[0];
-                y = newPos[1];
-
-                pixelPos = (y * canvasWidth + x) * 4;
-
-                while (y-- >= 0 && this.matchStartColor(pixelPos)) {
-                    pixelPos -= canvasWidth * 4;
-                }
-
-                pixelPos += canvasWidth * 4;
-                ++y;
-
-                reachLeft = false;
-                reachRight = false;
-                while (y++ < canvasHeight - 1 && this.matchStartColor(pixelPos)) {
-                    this.colorPixel(pixelPos);
-
-                    if (x > 0) {
-                        if (this.matchStartColor(pixelPos - 4)) {
-                            if (!reachLeft) {
-                                pixelStack.push([x - 1, y]);
-                                reachLeft = true;
-                            }
-                        } else if (reachLeft) {
-                            reachLeft = false;
-                        }
-                    }
-
-                    if (x < canvasWidth - 1) {
-                        if (this.matchStartColor(pixelPos + 4)) {
-                            if (!reachRight) {
-                                pixelStack.push([x + 1, y]);
-                                reachRight = true;
-                            }
-                        } else if (reachRight) {
-                            reachRight = false;
-                        }
-                    }
-                    pixelPos += canvasWidth * 4;
-                }
-            }
-            this.context.putImageData(this.imageData, 0, 0);
+            return;
         }
+        
+        let canvasWidth = canvas.width;
+        let canvasHeight = canvas.height;
+        this.imageData = this.context.getImageData(0, 0, canvas.width, canvas.height);
+
+        let pixelStack = [
+            [this.xStart, this.yStart]
+        ];
+
+        while (pixelStack.length) {
+            let newPos, x, y, pixelPos, reachLeft, reachRight;
+
+            newPos = pixelStack.pop();
+            x = newPos[0];
+            y = newPos[1];
+
+            pixelPos = (y * canvasWidth + x) * 4;
+
+            while (y-- >= 0 && this.matchStartColor(pixelPos)) {
+                pixelPos -= canvasWidth * 4;
+            }
+
+            pixelPos += canvasWidth * 4;
+            ++y;
+
+            reachLeft = false;
+            reachRight = false;
+            while (y++ < canvasHeight - 1 && this.matchStartColor(pixelPos)) {
+                this.colorPixel(pixelPos);
+
+                if (x > 0) {
+                    if (this.matchStartColor(pixelPos - 4)) {
+                        if (!reachLeft) {
+                            pixelStack.push([x - 1, y]);
+                            reachLeft = true;
+                        }
+                    } else if (reachLeft) {
+                        reachLeft = false;
+                    }
+                }
+
+                if (x < canvasWidth - 1) {
+                    if (this.matchStartColor(pixelPos + 4)) {
+                        if (!reachRight) {
+                            pixelStack.push([x + 1, y]);
+                            reachRight = true;
+                        }
+                    } else if (reachRight) {
+                        reachRight = false;
+                    }
+                }
+                pixelPos += canvasWidth * 4;
+            }
+        }
+        this.context.putImageData(this.imageData, 0, 0);
+
     }
 
     onMouseUp([xPos, yPos]) {
