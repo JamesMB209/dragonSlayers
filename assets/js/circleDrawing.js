@@ -15,10 +15,6 @@ class circleFunction extends MouseEvents {
         this.contextDraft.globalAlpha = transparency;
         this.context.lineWidth = lineWidth;
         this.contextDraft.lineWidth = lineWidth;
-        //this.contextDraft.beginPath();
-
-        //this.contextDraft.moveTo(xPos, yPos);
-
         this.drawStart([xPos, yPos]);
 
 

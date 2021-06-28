@@ -16,11 +16,6 @@ class iconFunction extends MouseEvents {
         this.contextDraft.lineWidth = lineWidth;
         this.context.globalAlpha = 1;
         this.contextDraft.globalAlpha = 1;
-        //this.contextDraft.beginPath();
-
-        //this.contextDraft.moveTo(xPos, yPos);
-
-
         this.context.drawImage(this.image, xPos, yPos, 100, 100);
         console.log('stick')
     }

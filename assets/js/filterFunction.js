@@ -31,8 +31,7 @@ $(".filter").on("click", function() {
     removefilter(originimage[1])
 
     var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-    // var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
+   
     console.log("Imagedata", ImageData)
 
     console.log("restore arr", restore_array)
@@ -40,7 +39,7 @@ $(".filter").on("click", function() {
     for (var j = 0; j < imageData.width; j++) {
         for (var i = 0; i < imageData.height; i++) {
             var pixel = (i * 4) * imageData.width + (j * 4); // start from zero
-            // console.log("index", index)
+        
 
             if (id == "grayscale") {
 
