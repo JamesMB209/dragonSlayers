@@ -15,6 +15,7 @@ class circleFunction extends MouseEvents {
         this.contextDraft.globalAlpha = transparency;
         this.context.lineWidth = lineWidth;
         this.contextDraft.lineWidth = lineWidth;
+        //calls the drawStart method
         this.drawStart([xPos, yPos]);
 
 
@@ -22,6 +23,7 @@ class circleFunction extends MouseEvents {
 
     onMouseDrag([xPos, yPos]) {
         console.log("onMouseDrag is running")
+        //calls the draw method
         this.draw([xPos, yPos]);
         console.log('draw')
 
@@ -31,9 +33,10 @@ class circleFunction extends MouseEvents {
         console.log("onMouseUp is running")
         this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
         console.log('clear')
+        //storing final mouse coordinates 
         var xEnd = xPos;
         var yEnd = yPos;
-        var radiusEnd = (((xEnd - xStart) ** 2) + ((yEnd - yStart) ** 2)) ** (1 / 2);
+        var radiusEnd = (((xEnd - xStart) ** 2) + ((yEnd - yStart) ** 2)) ** (1 / 2); //final radius
         console.log(radiusEnd)
         this.context.beginPath();
         this.context.arc(xStart, yStart, radiusEnd, 0, 2 * Math.PI);
@@ -46,6 +49,7 @@ class circleFunction extends MouseEvents {
     }
     drawStart([xPos, yPos]) {
         console.log('drawstart');
+        //storing coordinates of the starting center
         globalThis.xStart = xPos;
         globalThis.yStart = yPos;
         this.contextDraft.arc(xStart, yStart, 0, 0, 2 * Math.PI); //starting circle with a radius of zero
@@ -55,7 +59,7 @@ class circleFunction extends MouseEvents {
         console.log("draw is running")
         this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
         this.contextDraft.beginPath();
-        var radius = (((xPos - xStart) ** 2) + ((yPos - yStart) ** 2)) ** (1 / 2)
+        var radius = (((xPos - xStart) ** 2) + ((yPos - yStart) ** 2)) ** (1 / 2) //constantly calculates the new radius
         console.log(radius)
         this.contextDraft.arc(xStart, yStart, radius, 0, 2 * Math.PI); //starting circle with a radius of zero
         console.log("circle resize is okay")

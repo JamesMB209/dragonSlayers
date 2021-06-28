@@ -16,6 +16,7 @@ class curveFunction extends MouseEvents {
         this.contextDraft.lineWidth = lineWidth;
         this.contextDraft.beginPath();
         this.contextDraft.moveTo(xPos, yPos);
+        //stores the starting point of the curve based on the number of clicks
         if (this.counter % 2 == 0) {
             globalThis.xStartCurve = xPos;
             globalThis.yStartCurve = yPos;
@@ -34,12 +35,14 @@ class curveFunction extends MouseEvents {
     }
 
     onMouseUp([xPos, yPos]) {
+        //if number of clicks is odd
         if (this.counter % 2 != 0) {
             console.log("onMouseUp1 is running")
             globalThis.xEndCurve = xPos;
             globalThis.yEndCurve = yPos;
             dragging = false;
         }
+        //if number of clicks is even
         if (this.counter % 2 == 0) {
             console.log('onMouseUp2 is running')
             this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
@@ -54,6 +57,7 @@ class curveFunction extends MouseEvents {
     }
 
     draw([xPos, yPos]) {
+        //if number of clicks is odd
         if (this.counter % 2 != 0) {
             console.log("draw1 is running")
             this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
@@ -62,6 +66,7 @@ class curveFunction extends MouseEvents {
             this.contextDraft.quadraticCurveTo(xStartCurve, yStartCurve, xPos, yPos)
             this.contextDraft.stroke();
         }
+        //if number of clicks is even
         if (this.counter % 2 == 0) {
             console.log('draw2 is running')
             this.context

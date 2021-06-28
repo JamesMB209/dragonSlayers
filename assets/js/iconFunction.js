@@ -16,10 +16,12 @@ class iconFunction extends MouseEvents {
         this.contextDraft.lineWidth = lineWidth;
         this.context.globalAlpha = 1;
         this.contextDraft.globalAlpha = 1;
+        //stamps the image on mousedown
         this.context.drawImage(this.image, xPos, yPos, 100, 100);
         console.log('stick')
     }
 
+    //when hovering over the canvas, the image follows the cursor
     onMouseMove([xPos, yPos]) {
         console.log("onMouseMove is running")
         this.draw([xPos, yPos]);
@@ -35,6 +37,7 @@ class iconFunction extends MouseEvents {
         index++;
     }
 
+    //drawing the image on the canvasDraft
     draw([xPos, yPos]) {
         console.log("draw is running")
         this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
