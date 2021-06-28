@@ -1,7 +1,5 @@
 ## TO DO LIST:
-Joyce - Filter function 
-Gabe - Download tool
-James - Fillbucket
+ALL DONE
 
 ///================== Rating Requirement from Sam ========================
 
