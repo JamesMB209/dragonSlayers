@@ -25,7 +25,7 @@ uploadFile.addEventListener('change', function(e) {
         img = new Image();
         //Set source of image
         img.src = reader.result;
-        //On image load, add to canvas
+        //On image load, add to canvas and set uploaded image fit within canvas size
         img.onload = function() {
             context.drawImage(img, 0, 0, img.width, img.height,
                 0, 0, canvas.width, canvas.height);

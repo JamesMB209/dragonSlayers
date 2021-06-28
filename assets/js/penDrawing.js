@@ -10,6 +10,7 @@ class PenFunction extends MouseEvents {
         this.context.strokeStyle = colorStroke;
         this.context.fillStyle = colorFill;
         this.context.lineWidth = lineWidth;
+        this.context.globalAlpha = transparency;
         this.context.lineCap = "round";
         this.context.lineJoin = "round";
         this.context.beginPath();
@@ -30,9 +31,11 @@ class PenFunction extends MouseEvents {
         this.draw([xPos, yPos])
         dragging = false;
 
+        // restore the lineCap & LineJoin Value to default
         this.context.lineCap = "butt";
         this.context.lineJoin = "miter";
 
+        // saving image for undo function
         restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
         index += 1;
         // console.log("index:", index, "restorearr", restore_array)
@@ -40,13 +43,7 @@ class PenFunction extends MouseEvents {
 
     draw([xPos, yPos]) {
         // console.log("draw is running")
-        // this.context.beginPath();
         this.context.lineTo(xPos, yPos);
-        // console.log("lineTO is okay")
-        // this.context.moveTo(xPos, yPos);
-        // console.log("moveto is okay")
-        // this.context.closePath();
-        // console.log("closepath okay")
         this.context.stroke();
         // console.log("draw finish")
     }

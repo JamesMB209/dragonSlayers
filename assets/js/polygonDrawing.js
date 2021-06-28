@@ -18,50 +18,54 @@ class PolygonFunction extends MouseEvents {
         this.contextDraft.globalAlpha = transparency;
         this.contextDraft.lineJoin = "round"
         this.contextDraft.lineCap = "round";
+
         //fix the starting point for previewing on draft 
         this.startingX = xPos;
         this.startingY = yPos;
-        console.log("polydone in mousedown before push", polydone)
+        // console.log("polydone in mousedown before push", polydone)
         if (polydone == true) {
             logX.push(this.startingX);
             logY.push(this.startingY);
             polydone = false;
         }
-        console.log("logX in onMouseDown", logX)
-        console.log("starting", this.startingX, this.startingY);
+
+        // tracking the last position of X & Y for continue drawing from last point 
         line += 1;
-        console.log("Line numb", line)
+
     }
     onMouseDrag([xPos, yPos]) {
         console.log("onMouseDrag is running")
         this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
         this.contextDraft.beginPath();
+        // make the initial point as red for easy capture
         this.contextDraft.strokeStyle = "red";
         this.context.beginPath();
         this.contextDraft.beginPath();
-        console.log("logX", logX)
-        console.log("logY", logY)
+
+        // check if it is a starting point of drawing
         if (xPos !== logX[0] && yPos !== logY[0]) {
             this.contextDraft.arc(logX[0], logY[0], 10, 0, 2 * Math.PI);
             this.contextDraft.moveTo(logX[line], logY[line]);
             this.contextDraft.lineTo(xPos, yPos);
-            console.log("onmousedrag", xPos, yPos);
             this.contextDraft.stroke();
         }
     }
+
     onMouseUp([xPos, yPos]) {
         this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
         this.context.beginPath();
         this.context.moveTo(logX[line], logY[line]);
+
+        // check whether close to the start point and closepath for the polygon
         if (xPos !== logX[0] && yPos !== logY[0]) {
-            console.log("line num onMouseUp", line)
-            console.log("context pos count", Math.abs(xPos - logX[0]), Math.abs(yPos - logY[0]))
             if (Math.abs(xPos - logX[0]) < 30 && Math.abs(yPos - logY[0]) < 30) {
-                console.log("done");
+                // console.log("done");
                 this.context.lineTo(logX[0], logY[0]);
                 this.context.closePath();
                 this.context.fill();
                 this.context.stroke();
+
+                // restore all default value after finished drawing
                 polydone = true;
                 linelog.push(line);
                 console.log("done linelog", linelog)
@@ -71,38 +75,36 @@ class PolygonFunction extends MouseEvents {
                 undoX = [];
                 undoY = [];
 
-                console.log("Done check value", logX, logY, line)
             } else {
-                console.log("onMouseUp", xPos, yPos);
+                // for continue drawing
                 logX.push(xPos);
-                console.log("onMouseUp - logX", logX);
                 logY.push(yPos);
-                console.log("onMouseUp - logY", logY);
                 this.context.lineTo(xPos, yPos);
-                console.log("ending onmouseup", xPos, yPos);
                 this.context.stroke();
             }
         } else {
-            console.log("done")
+
+            // for pointing the start point
             this.context.lineTo(logX[0], logY[0]);
             this.context.closePath();
             this.context.fill();
             this.context.stroke();
+
+            // restore all default value after finished drawing
             polydone = true;
             linelog.push(line);
-            console.log("done linelog", linelog)
             line = -1;
             logX = [];
             logY = [];
             undoX = [];
             undoY = [];
-            console.log("Done check value", logX, logY, line)
         }
         dragging = false;
-        console.log("going to save")
+
+        // saving image for undo / redo function
         restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
         index += 1;
-        console.log("index:", index, "restorearr", restore_array);
+
     }
 }
 $("#polygonFunction").click(function() {

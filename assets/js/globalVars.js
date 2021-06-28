@@ -12,9 +12,6 @@ let contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
 let uploaded = false;
-let originimage = ["0"];
-let filterselect = false;
-
 
 
 // Canvas tool settings/defaults
@@ -29,7 +26,8 @@ let restore_array = [];
 let index = -1;
 let redo_array = [];
 let reindex = -1;
-//for polygon only
+
+//Variables for polygon only
 let polygonactive = false;
 let logX = [];
 let logY = [];
@@ -40,10 +38,13 @@ let undoX = [];
 let undoY = [];
 let polydone = true;
 
+// Variables for filter function
+let originimage = ["0"];
+let filterselect = false;
+
 
 
 // Setting up the canvas sizes
-
 canvas.width = 1050;
 canvas.height = 620;
 canvasDraft.width = canvas.width;

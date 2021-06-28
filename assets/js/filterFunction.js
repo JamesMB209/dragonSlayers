@@ -1,3 +1,4 @@
+// the saved original image will recover the data for removing the filter effect
 function removefilter(originimg) {
     if (filterselect == true) {
         for (var j = 0; j < originimg.width; j++) {
@@ -10,7 +11,6 @@ function removefilter(originimg) {
         }
         context.putImageData(originimg, 0, 0);
         filterselect = false;
-        console.log("remove run")
     }
 }
 
@@ -18,9 +18,14 @@ function removefilter(originimg) {
 $(".filter").on("click", function() {
     polygonactive = false;
     console.log("filter is started")
+
+    // for selecting which filter to be ran
     var id = $(this).attr("id");
+
+    // for triggering the removefilter function 
     filterselect = true;
 
+    // saving the original image data
     if (uploaded == true) {
         originimage.push(context.getImageData(0, 0, canvas.width, canvas.height));
         restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
@@ -28,22 +33,20 @@ $(".filter").on("click", function() {
         uploaded = false;
     }
 
+    // running the removefilter function with original image data
     removefilter(originimage[1])
 
+    // using current image data for adding effect
     var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-    // var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 
-    console.log("Imagedata", ImageData)
 
-    console.log("restore arr", restore_array)
-
+    //running every pixel on the canvas
     for (var j = 0; j < imageData.width; j++) {
         for (var i = 0; i < imageData.height; i++) {
             var pixel = (i * 4) * imageData.width + (j * 4); // start from zero
-            // console.log("index", index)
+
 
             if (id == "grayscale") {
-
                 var gray = (imageData.data[pixel] + imageData.data[pixel + 1] + imageData.data[pixel + 2]) / 3;
                 imageData.data[pixel] = gray; // red channel
                 imageData.data[pixel + 1] = gray; //green channel
@@ -58,22 +61,23 @@ $(".filter").on("click", function() {
                 imageData.data[pixel + 1] = 0; //green channel
                 imageData.data[pixel + 2] = 0; // blue channel
             } else if (id == "brighter") {
-                imageData.data[pixel] += 10;
-                imageData.data[pixel + 1] += 10;
-                imageData.data[pixel + 2] += 10;
+                imageData.data[pixel] += 10; // red
+                imageData.data[pixel + 1] += 10; // green
+                imageData.data[pixel + 2] += 10; // blue
             } else if (id == "darker") {
-                imageData.data[pixel] -= 10;
-                imageData.data[pixel + 1] -= 10;
-                imageData.data[pixel + 2] -= 10;
+                imageData.data[pixel] -= 10; // red
+                imageData.data[pixel + 1] -= 10; // green
+                imageData.data[pixel + 2] -= 10; // blue
             }
 
         }
     }
-    console.log(originimage[1])
+
+    //placing the effect on canvas
     context.putImageData(imageData, 0, 0);
+
+    // saving image for undo redo function
     restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
     index += 1;
-    console.log("filter done save index:", index, "restorearr", restore_array)
-
 
 })
