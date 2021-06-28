@@ -38,12 +38,6 @@ class curveFunction extends MouseEvents {
             console.log("onMouseUp1 is running")
             globalThis.xEndCurve = xPos;
             globalThis.yEndCurve = yPos;
-            //this.contextDraft.clearRect(0, 0, canvas.width, canvas.height);
-            // console.log('clear')
-            // context.beginPath();
-            // this.contextDraft.quadraticCurveTo(xStartCurve, yStartCurve, xEndCurve, yEndCurve);
-            // this.context.stroke();
-            // console.log('stick')
             dragging = false;
         }
         if (this.counter % 2 == 0) {

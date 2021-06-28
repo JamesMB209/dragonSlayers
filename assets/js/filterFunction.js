@@ -39,7 +39,6 @@ $(".filter").on("click", function() {
     // using current image data for adding effect
     var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
 
-
     //running every pixel on the canvas
     for (var j = 0; j < imageData.width; j++) {
         for (var i = 0; i < imageData.height; i++) {

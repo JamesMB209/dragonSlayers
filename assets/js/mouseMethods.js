@@ -36,7 +36,6 @@ $('#canvasDraft').mouseup(function(e) {
 
 $('#canvasDraft').mouseleave(function(e) {
     dragging = false;
-    // console.log("leave");
     mousePos(e);
     currentFunction.onMouseLeave([xPos, yPos]);
 });
